@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 #pragma once
 
-#include "winrt/AdaptiveCards.Rendering.Uwp.h"
+#include "winrt/AdaptiveCards.Rendering.Winui3.h"
 
 namespace winrt::AdaptiveCards::Rendering::Uwp
 {
