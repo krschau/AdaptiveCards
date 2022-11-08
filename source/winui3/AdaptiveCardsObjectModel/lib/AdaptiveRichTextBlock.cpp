@@ -5,11 +5,11 @@
 #include "AdaptiveRichTextBlock.h"
 #include "AdaptiveRichTextBlock.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveRichTextBlock::AdaptiveRichTextBlock(const std::shared_ptr<::AdaptiveCards::RichTextBlock>& sharedRichTextBlock) noexcept
     {
-        HorizontalAlignment = opt_cast<Uwp::HAlignment>(sharedRichTextBlock->GetHorizontalAlignment());
+        HorizontalAlignment = opt_cast<Winui3::HAlignment>(sharedRichTextBlock->GetHorizontalAlignment());
         Inlines = GenerateInlinesProjection(sharedRichTextBlock->GetInlines());
 
         InitializeBaseElement(sharedRichTextBlock);

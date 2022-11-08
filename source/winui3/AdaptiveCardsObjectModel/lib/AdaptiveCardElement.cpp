@@ -4,21 +4,21 @@
 #include "AdaptiveCardElement.h"
 #include "SemanticVersion.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     void AdaptiveCardElementBase::InitializeBaseElement(const std::shared_ptr<::AdaptiveCards::BaseCardElement>& sharedModel)
     {
-        Spacing = static_cast<winrt::AdaptiveCards::ObjectModel::Uwp::Spacing>(sharedModel->GetSpacing());
+        Spacing = static_cast<winrt::AdaptiveCards::ObjectModel::Winui3::Spacing>(sharedModel->GetSpacing());
         Separator = sharedModel->GetSeparator();
         IsVisible = sharedModel->GetIsVisible();
         Id = UTF8ToHString(sharedModel->GetId());
         AdditionalProperties = JsonCppToJsonObject(sharedModel->GetAdditionalProperties());
         ElementTypeString = UTF8ToHString(sharedModel->GetElementTypeString());
-        Height = static_cast<winrt::AdaptiveCards::ObjectModel::Uwp::HeightType>(sharedModel->GetHeight());
+        Height = static_cast<winrt::AdaptiveCards::ObjectModel::Winui3::HeightType>(sharedModel->GetHeight());
         InternalId = sharedModel->GetInternalId().Hash();
         m_fallbackType = MapSharedFallbackTypeToUwp(sharedModel->GetFallbackType());
 
-        if (m_fallbackType == winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content)
+        if (m_fallbackType == winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::Content)
         {
             if (auto fallbackObject = sharedModel->GetFallbackContent())
             {
@@ -28,9 +28,9 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         Requirements = GenerateRequirementsProjection(sharedModel->GetRequirements());
     }
 
-    void AdaptiveCardElementBase::FallbackType(winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType const& fallback)
+    void AdaptiveCardElementBase::FallbackType(winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType const& fallback)
     {
-        if (fallback != winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content)
+        if (fallback != winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::Content)
         {
             m_fallbackContent = nullptr;
         }
@@ -38,17 +38,17 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         m_fallbackType = fallback;
     }
 
-    void AdaptiveCardElementBase::FallbackContent(winrt::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement const& content)
+    void AdaptiveCardElementBase::FallbackContent(winrt::AdaptiveCards::ObjectModel::Winui3::IAdaptiveCardElement const& content)
     {
         m_fallbackContent = content;
 
-        if (content == nullptr && m_fallbackType == winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content)
+        if (content == nullptr && m_fallbackType == winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::Content)
         {
-            m_fallbackType = winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::None;
+            m_fallbackType = winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::None;
         }
         else if (content)
         {
-            m_fallbackType = winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content;
+            m_fallbackType = winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::Content;
         }
     }
 
@@ -68,7 +68,7 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
 
         sharedCardElement.GetRequirements() = GenerateSharedRequirements(Requirements);
 
-        if (m_fallbackType == winrt::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content)
+        if (m_fallbackType == winrt::AdaptiveCards::ObjectModel::Winui3::FallbackType::Content)
         {
             sharedCardElement.SetFallbackContent(GenerateSharedElement(m_fallbackContent));
         }

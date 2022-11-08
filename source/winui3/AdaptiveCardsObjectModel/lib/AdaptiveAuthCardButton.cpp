@@ -4,7 +4,7 @@
 #include "AdaptiveAuthCardButton.h"
 #include "AdaptiveAuthCardButton.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveAuthCardButton::AdaptiveAuthCardButton(std::shared_ptr<::AdaptiveCards::AuthCardButton> const& sharedAuthCardButton)
     {

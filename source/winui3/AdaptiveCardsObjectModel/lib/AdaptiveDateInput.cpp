@@ -5,7 +5,7 @@
 #include "AdaptiveDateInput.h"
 #include "AdaptiveDateInput.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveDateInput::AdaptiveDateInput(const std::shared_ptr<::AdaptiveCards::DateInput>& sharedDateInput)
     {

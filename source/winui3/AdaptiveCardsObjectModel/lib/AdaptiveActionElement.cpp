@@ -3,7 +3,7 @@
 #include "pch.h"
 #include "AdaptiveActionElement.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     winrt::Windows::Data::Json::JsonObject AdaptiveActionElementBase::ToJson()
     {
@@ -44,13 +44,13 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         IconUrl = UTF8ToHString(sharedModel->GetIconUrl());
         Style = UTF8ToHString(sharedModel->GetStyle());
         Tooltip = UTF8ToHString(sharedModel->GetTooltip());
-        Mode = static_cast<Uwp::ActionMode>(sharedModel->GetMode());
+        Mode = static_cast<Winui3::ActionMode>(sharedModel->GetMode());
 
         IsEnabled = sharedModel->GetIsEnabled();
 
         InternalId = sharedModel->GetInternalId().Hash();
-        m_fallbackType = static_cast<Uwp::FallbackType>(MapSharedFallbackTypeToUwp(sharedModel->GetFallbackType()));
-        if (m_fallbackType == Uwp::FallbackType::Content)
+        m_fallbackType = static_cast<Winui3::FallbackType>(MapSharedFallbackTypeToUwp(sharedModel->GetFallbackType()));
+        if (m_fallbackType == Winui3::FallbackType::Content)
         {
             if (auto fallback = std::static_pointer_cast<::AdaptiveCards::BaseActionElement>(sharedModel->GetFallbackContent()))
             {

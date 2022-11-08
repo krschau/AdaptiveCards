@@ -2,7 +2,7 @@
 #include "AdaptiveTokenExchangeResource.h"
 #include "AdaptiveTokenExchangeResource.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveTokenExchangeResource::AdaptiveTokenExchangeResource(const std::shared_ptr<::AdaptiveCards::TokenExchangeResource>& sharedRefresh)
     {

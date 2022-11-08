@@ -4,7 +4,7 @@
 #include "AdaptiveChoiceInput.h"
 #include "AdaptiveChoiceInput.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveChoiceInput::AdaptiveChoiceInput(const std::shared_ptr<::AdaptiveCards::ChoiceInput>& sharedChoiceInput) :
         m_sharedChoiceInput(sharedChoiceInput)

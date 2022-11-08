@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 #pragma once
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     struct AdaptiveActionElementBase
     {
@@ -27,17 +27,17 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
 
         void InitializeBaseElement(const std::shared_ptr<::AdaptiveCards::BaseActionElement>& sharedModel);
 
-        Uwp::FallbackType FallbackType() { return m_fallbackType; }
+        Winui3::FallbackType FallbackType() { return m_fallbackType; }
 
-        void FallbackType(Uwp::FallbackType const& fallback)
+        void FallbackType(Winui3::FallbackType const& fallback)
         {
-            if (fallback != Uwp::FallbackType::Content)
+            if (fallback != Winui3::FallbackType::Content)
             {
                 FallbackContent = nullptr;
             }
             m_fallbackType = fallback;
         }
 
-        Uwp::FallbackType m_fallbackType;
+        Winui3::FallbackType m_fallbackType;
     };
 }

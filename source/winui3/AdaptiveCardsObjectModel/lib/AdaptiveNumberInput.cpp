@@ -5,7 +5,7 @@
 #include "AdaptiveNumberInput.h"
 #include "AdaptiveNumberInput.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveNumberInput::AdaptiveNumberInput(const std::shared_ptr<::AdaptiveCards::NumberInput>& sharedNumberInput)
     {

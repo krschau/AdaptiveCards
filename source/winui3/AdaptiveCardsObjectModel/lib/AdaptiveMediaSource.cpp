@@ -4,7 +4,7 @@
 #include "AdaptiveMediaSource.h"
 #include "AdaptiveMediaSource.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveMediaSource::AdaptiveMediaSource(const std::shared_ptr<::AdaptiveCards::MediaSource>& sharedMediaSource)
     {

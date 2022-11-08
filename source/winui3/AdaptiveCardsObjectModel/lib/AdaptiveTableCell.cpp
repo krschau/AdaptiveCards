@@ -4,17 +4,17 @@
 #include "AdaptiveTableCell.h"
 #include "AdaptiveTableCell.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveTableCell::AdaptiveTableCell(const std::shared_ptr<::AdaptiveCards::TableCell>& sharedTableCell)
     {
         Items = GenerateContainedElementsProjection(sharedTableCell->GetItems());
         SelectAction = GenerateActionProjection(sharedTableCell->GetSelectAction());
-        Style = static_cast<Uwp::ContainerStyle>(sharedTableCell->GetStyle());
-        VerticalContentAlignment = opt_cast<Uwp::VerticalContentAlignment>(sharedTableCell->GetVerticalContentAlignment());
+        Style = static_cast<Winui3::ContainerStyle>(sharedTableCell->GetStyle());
+        VerticalContentAlignment = opt_cast<Winui3::VerticalContentAlignment>(sharedTableCell->GetVerticalContentAlignment());
         MinHeight = sharedTableCell->GetMinHeight();
         Bleed = sharedTableCell->GetBleed();
-        BleedDirection = static_cast<Uwp::BleedDirection>(sharedTableCell->GetBleedDirection());
+        BleedDirection = static_cast<Winui3::BleedDirection>(sharedTableCell->GetBleedDirection());
         Rtl = sharedTableCell->GetRtl();
 
         auto backgroundImage = sharedTableCell->GetBackgroundImage();

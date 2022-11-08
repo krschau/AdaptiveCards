@@ -7,16 +7,16 @@
 #include "AdaptiveTextBlockParser.g.cpp"
 #include "AdaptiveElementParserRegistration.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
-    winrt::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement AdaptiveTextBlockParser::FromJson(
+    winrt::AdaptiveCards::ObjectModel::Winui3::IAdaptiveCardElement AdaptiveTextBlockParser::FromJson(
         winrt::Windows::Data::Json::JsonObject const& inputJson,
-        winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveElementParserRegistration const& elementParsers,
-        winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveActionParserRegistration const& actionParsers,
-        winrt::Windows::Foundation::Collections::IVector<winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveWarning> const& warnings)
+        winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveElementParserRegistration const& elementParsers,
+        winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveActionParserRegistration const& actionParsers,
+        winrt::Windows::Foundation::Collections::IVector<winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveWarning> const& warnings)
     {
-        return ::AdaptiveCards::ObjectModel::Uwp::FromJson<implementation::AdaptiveTextBlock, ::AdaptiveCards::TextBlock, ::AdaptiveCards::TextBlockParser>(
+        return ::AdaptiveCards::ObjectModel::Winui3::FromJson<implementation::AdaptiveTextBlock, ::AdaptiveCards::TextBlock, ::AdaptiveCards::TextBlockParser>(
                    inputJson, elementParsers, actionParsers, warnings)
-            .as<winrt::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement>();
+            .as<winrt::AdaptiveCards::ObjectModel::Winui3::IAdaptiveCardElement>();
     }
 }

@@ -5,7 +5,7 @@
 #include "AdaptiveTextRun.h"
 #include "AdaptiveTextRun.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveTextRun::AdaptiveTextRun(const std::shared_ptr<::AdaptiveCards::TextRun>& sharedTextRun)
     {

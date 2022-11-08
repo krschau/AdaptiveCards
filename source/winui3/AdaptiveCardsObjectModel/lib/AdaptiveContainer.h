@@ -6,7 +6,7 @@
 #include "AdaptiveBackgroundImage.h"
 #include "AdaptiveContainer.g.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     struct DECLSPEC_UUID("d6031009-7039-4735-bd07-ab6d99b29f03") AdaptiveContainer : AdaptiveContainerT<AdaptiveContainer, ITypePeek>, AdaptiveCardElementBase
     {
@@ -20,19 +20,19 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         // ITypePeek method
         void* PeekAt(REFIID riid) override { return PeekHelper(riid, this); }
 
-        property<winrt::Windows::Foundation::Collections::IVector<Uwp::IAdaptiveCardElement>> Items;
-        property<Uwp::IAdaptiveActionElement> SelectAction;
-        property<Uwp::ContainerStyle> Style;
-        property_opt<Uwp::VerticalContentAlignment> VerticalContentAlignment;
-        property<Uwp::AdaptiveBackgroundImage> BackgroundImage{nullptr};
+        property<winrt::Windows::Foundation::Collections::IVector<Winui3::IAdaptiveCardElement>> Items;
+        property<Winui3::IAdaptiveActionElement> SelectAction;
+        property<Winui3::ContainerStyle> Style;
+        property_opt<Winui3::VerticalContentAlignment> VerticalContentAlignment;
+        property<Winui3::AdaptiveBackgroundImage> BackgroundImage{nullptr};
         property<uint32_t> MinHeight;
         property<bool> Bleed;
-        property<Uwp::BleedDirection> BleedDirection;
+        property<Winui3::BleedDirection> BleedDirection;
         property_opt<bool> Rtl;
     };
 }
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::factory_implementation
 {
     struct AdaptiveContainer : AdaptiveContainerT<AdaptiveContainer, implementation::AdaptiveContainer>
     {

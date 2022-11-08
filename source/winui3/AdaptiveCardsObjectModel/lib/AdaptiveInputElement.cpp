@@ -4,7 +4,7 @@
 
 #include "AdaptiveInputElement.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     void AdaptiveInputElementBase::InitializeBaseElement(const std::shared_ptr<::AdaptiveCards::BaseInputElement>& sharedModel)
     {

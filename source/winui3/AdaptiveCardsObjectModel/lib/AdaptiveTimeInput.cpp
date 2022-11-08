@@ -5,7 +5,7 @@
 #include "AdaptiveTimeInput.h"
 #include "AdaptiveTimeInput.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveTimeInput::AdaptiveTimeInput(const std::shared_ptr<::AdaptiveCards::TimeInput>& sharedTimeInput)
     {

@@ -4,7 +4,7 @@
 #include "AdaptiveActionSet.h"
 #include "AdaptiveActionSet.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveActionSet::AdaptiveActionSet(std::shared_ptr<::AdaptiveCards::ActionSet> const& sharedActionSet)
     {

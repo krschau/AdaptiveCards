@@ -12,7 +12,7 @@
 #include "windows.ui.xaml.h"
 #include "AdaptiveActionParserRegistration.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveActionParserRegistration::AdaptiveActionParserRegistration()
     {
@@ -20,13 +20,13 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
 
         // Register this (UWP) registration with a well known guid string in the shared model
         // registration so we can get it back again
-        m_sharedParserRegistration->AddParser(::AdaptiveCards::ObjectModel::Uwp::c_upwActionParserRegistration,
-                                              std::make_shared<::AdaptiveCards::ObjectModel::Uwp::SharedModelActionParser>(*this));
+        m_sharedParserRegistration->AddParser(::AdaptiveCards::ObjectModel::Winui3::c_upwActionParserRegistration,
+                                              std::make_shared<::AdaptiveCards::ObjectModel::Winui3::SharedModelActionParser>(*this));
 
         m_isInitializing = false;
     }
 
-    void AdaptiveActionParserRegistration::Set(hstring const& type, Uwp::IAdaptiveActionParser const& Parser)
+    void AdaptiveActionParserRegistration::Set(hstring const& type, Winui3::IAdaptiveActionParser const& Parser)
     {
         std::string typeString = HStringToUTF8(type);
         (*m_registration)[typeString] = Parser;
@@ -36,11 +36,11 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         if (!m_isInitializing)
         {
             m_sharedParserRegistration->AddParser(
-                typeString, std::make_shared<::AdaptiveCards::ObjectModel::Uwp::SharedModelActionParser>(*this));
+                typeString, std::make_shared<::AdaptiveCards::ObjectModel::Winui3::SharedModelActionParser>(*this));
         }
     }
 
-    Uwp::IAdaptiveActionParser AdaptiveActionParserRegistration::Get(hstring const& type)
+    Winui3::IAdaptiveActionParser AdaptiveActionParserRegistration::Get(hstring const& type)
     {
         auto found = m_registration->find(HStringToUTF8(type));
         if (found != m_registration->end())
@@ -65,7 +65,7 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
 
     template<typename D> auto MakeParser()
     {
-        return winrt::make<D>().as<winrt::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionParser>();
+        return winrt::make<D>().as<winrt::AdaptiveCards::ObjectModel::Winui3::IAdaptiveActionParser>();
     }
 
     void AdaptiveActionParserRegistration::RegisterDefaultActionParsers()
@@ -78,9 +78,9 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
     }
 }
 
-namespace AdaptiveCards::ObjectModel::Uwp
+namespace AdaptiveCards::ObjectModel::Winui3
 {
-    SharedModelActionParser::SharedModelActionParser(winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveActionParserRegistration const& parserRegistration)
+    SharedModelActionParser::SharedModelActionParser(winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveActionParserRegistration const& parserRegistration)
     {
         m_parserRegistration = winrt::make_weak(parserRegistration);
     }
@@ -92,7 +92,7 @@ namespace AdaptiveCards::ObjectModel::Uwp
         auto adaptiveActionParserRegistration = GetAdaptiveParserRegistration();
         auto parser = adaptiveActionParserRegistration.Get(UTF8ToHString(type));
         auto jsonObject = JsonCppToJsonObject(value);
-        auto adaptiveWarnings = winrt::single_threaded_vector<winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveWarning>();
+        auto adaptiveWarnings = winrt::single_threaded_vector<winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveWarning>();
 
         // Get the element parser registration from the shared model
         auto adaptiveElementParserRegistration =
@@ -110,7 +110,7 @@ namespace AdaptiveCards::ObjectModel::Uwp
         return Deserialize(context, ParseUtil::GetJsonValueFromString(jsonString));
     }
 
-    winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveActionParserRegistration SharedModelActionParser::GetAdaptiveParserRegistration()
+    winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveActionParserRegistration SharedModelActionParser::GetAdaptiveParserRegistration()
     {
         return m_parserRegistration.get();
     }

@@ -7,16 +7,16 @@
 #include <windows.foundation.collections.h>
 #include "AdaptiveColumn.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveColumnSet::AdaptiveColumnSet(std::shared_ptr<::AdaptiveCards::ColumnSet> const& sharedColumnSet)
     {
         Columns = GenerateVectorProjection<implementation::AdaptiveColumn>(sharedColumnSet->GetColumns());
         SelectAction = GenerateActionProjection(sharedColumnSet->GetSelectAction());
-        Style = static_cast<Uwp::ContainerStyle>(sharedColumnSet->GetStyle());
+        Style = static_cast<Winui3::ContainerStyle>(sharedColumnSet->GetStyle());
         MinHeight = sharedColumnSet->GetMinHeight();
         Bleed = sharedColumnSet->GetBleed();
-        BleedDirection = static_cast<Uwp::BleedDirection>(sharedColumnSet->GetBleedDirection());
+        BleedDirection = static_cast<Winui3::BleedDirection>(sharedColumnSet->GetBleedDirection());
         InitializeBaseElement(sharedColumnSet);
     }
 

@@ -5,14 +5,14 @@
 #include "AdaptiveTextBlock.h"
 #include "AdaptiveTextBlock.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveTextBlock::AdaptiveTextBlock(const std::shared_ptr<::AdaptiveCards::TextBlock>& sharedTextBlock)
     {
         Wrap = sharedTextBlock->GetWrap();
         MaxLines = sharedTextBlock->GetMaxLines();
-        HorizontalAlignment = opt_cast<Uwp::HAlignment>(sharedTextBlock->GetHorizontalAlignment());
-        Style = opt_cast<Uwp::TextStyle>(sharedTextBlock->GetStyle());
+        HorizontalAlignment = opt_cast<Winui3::HAlignment>(sharedTextBlock->GetHorizontalAlignment());
+        Style = opt_cast<Winui3::TextStyle>(sharedTextBlock->GetStyle());
 
         InitializeTextElement(sharedTextBlock);
         InitializeBaseElement(sharedTextBlock);

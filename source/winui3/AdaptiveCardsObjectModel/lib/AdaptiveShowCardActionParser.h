@@ -4,20 +4,20 @@
 
 #include "AdaptiveShowCardActionParser.g.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     struct AdaptiveShowCardActionParser : AdaptiveShowCardActionParserT<AdaptiveShowCardActionParser>
     {
         AdaptiveShowCardActionParser() = default;
 
-        winrt::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionElement FromJson(
+        winrt::AdaptiveCards::ObjectModel::Winui3::IAdaptiveActionElement FromJson(
             winrt::Windows::Data::Json::JsonObject const& inputJson,
-            winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveElementParserRegistration const& elementParsers,
-            winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveActionParserRegistration const& actionParsers,
-            winrt::Windows::Foundation::Collections::IVector<winrt::AdaptiveCards::ObjectModel::Uwp::AdaptiveWarning> const& warnings);
+            winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveElementParserRegistration const& elementParsers,
+            winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveActionParserRegistration const& actionParsers,
+            winrt::Windows::Foundation::Collections::IVector<winrt::AdaptiveCards::ObjectModel::Winui3::AdaptiveWarning> const& warnings);
     };
 }
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::factory_implementation
 {
     struct AdaptiveShowCardActionParser
         : AdaptiveShowCardActionParserT<AdaptiveShowCardActionParser, implementation::AdaptiveShowCardActionParser>

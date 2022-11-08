@@ -6,7 +6,7 @@
 #include "AdaptiveActionElement.h"
 #include "AdaptiveExecuteAction.g.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     struct DECLSPEC_UUID("05764D21-0053-4282-A254-10A93BA21D7B") AdaptiveExecuteAction : AdaptiveExecuteActionT < AdaptiveExecuteAction, ITypePeek>, AdaptiveActionElementBase
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
                                   std::make_shared<::AdaptiveCards::ExecuteAction>());
 
         // IAdaptiveActionElement
-        auto ActionType() { return Uwp::ActionType::Execute; }
+        auto ActionType() { return Winui3::ActionType::Execute; }
 
         std::shared_ptr<::AdaptiveCards::BaseActionElement> GetSharedModel();
 
@@ -23,12 +23,12 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         void* PeekAt(REFIID riid) override { return PeekHelper(riid, this); }
 
         property<winrt::Windows::Data::Json::JsonValue> DataJson;
-        property<Uwp::AssociatedInputs> AssociatedInputs;
+        property<Winui3::AssociatedInputs> AssociatedInputs;
         property<hstring> Verb;
     };
 }
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::factory_implementation
 {
     struct AdaptiveExecuteAction : AdaptiveExecuteActionT<AdaptiveExecuteAction, implementation::AdaptiveExecuteAction>
     {

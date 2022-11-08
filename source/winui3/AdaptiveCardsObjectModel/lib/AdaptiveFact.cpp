@@ -5,7 +5,7 @@
 #include "AdaptiveFact.h"
 #include "AdaptiveFact.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveFact::AdaptiveFact(const std::shared_ptr<::AdaptiveCards::Fact>& sharedFact)
     {

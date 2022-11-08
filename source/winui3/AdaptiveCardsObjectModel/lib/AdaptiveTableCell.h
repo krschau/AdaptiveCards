@@ -6,7 +6,7 @@
 #include "AdaptiveBackgroundImage.h"
 #include "AdaptiveTableCell.g.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     struct DECLSPEC_UUID("8670BAA9-7DAC-4714-81F3-8D1553CD0E4E") AdaptiveTableCell : AdaptiveTableCellT < AdaptiveTableCell, ITypePeek>,
         AdaptiveCardElementBase
@@ -15,20 +15,20 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
         AdaptiveTableCell(const std::shared_ptr<::AdaptiveCards::TableCell>& sharedTableCell);
 
         // IAdaptiveContainer
-        property<winrt::Windows::Foundation::Collections::IVector<Uwp::IAdaptiveCardElement>> Items;
-        property_opt<Uwp::VerticalContentAlignment> VerticalContentAlignment;
-        property<Uwp::AdaptiveBackgroundImage> BackgroundImage{nullptr};
+        property<winrt::Windows::Foundation::Collections::IVector<Winui3::IAdaptiveCardElement>> Items;
+        property_opt<Winui3::VerticalContentAlignment> VerticalContentAlignment;
+        property<Winui3::AdaptiveBackgroundImage> BackgroundImage{nullptr};
         property_opt<bool> Rtl;
 
         // IAdaptiveContainerBase
-        property<Uwp::ContainerStyle> Style;
-        property<Uwp::IAdaptiveActionElement> SelectAction;
+        property<Winui3::ContainerStyle> Style;
+        property<Winui3::IAdaptiveActionElement> SelectAction;
         property<bool> Bleed;
-        property<Uwp::BleedDirection> BleedDirection;
+        property<Winui3::BleedDirection> BleedDirection;
         property<uint32_t> MinHeight;
 
         // IAdaptiveCardElement
-        auto ElementType() { return Uwp::ElementType::TableCell; }
+        auto ElementType() { return Winui3::ElementType::TableCell; }
 
         virtual std::shared_ptr<::AdaptiveCards::BaseCardElement> GetSharedModel() override;
 
@@ -37,7 +37,7 @@ namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::factory_implementation
 {
     struct AdaptiveTableCell : AdaptiveTableCellT<AdaptiveTableCell, implementation::AdaptiveTableCell>
     {

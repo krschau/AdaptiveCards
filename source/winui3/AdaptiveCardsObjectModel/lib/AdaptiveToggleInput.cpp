@@ -5,7 +5,7 @@
 #include "AdaptiveToggleInput.h"
 #include "AdaptiveToggleInput.g.cpp"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveToggleInput::AdaptiveToggleInput(const std::shared_ptr<::AdaptiveCards::ToggleInput>& sharedToggleInput)
     {

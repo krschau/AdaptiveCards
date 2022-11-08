@@ -5,14 +5,14 @@
 #include "AdaptiveChoiceSetInput.g.cpp"
 #include "AdaptiveChoiceInput.h"
 
-namespace winrt::AdaptiveCards::ObjectModel::Uwp::implementation
+namespace winrt::AdaptiveCards::ObjectModel::Winui3::implementation
 {
     AdaptiveChoiceSetInput::AdaptiveChoiceSetInput(std::shared_ptr<::AdaptiveCards::ChoiceSetInput> const& sharedChoiceSetInput)
     {
         Choices = GenerateVectorProjection<implementation::AdaptiveChoiceInput>(sharedChoiceSetInput->GetChoices());
         IsMultiSelect = sharedChoiceSetInput->GetIsMultiSelect();
         Wrap = sharedChoiceSetInput->GetWrap();
-        ChoiceSetStyle = static_cast<Uwp::ChoiceSetStyle>(sharedChoiceSetInput->GetChoiceSetStyle());
+        ChoiceSetStyle = static_cast<Winui3::ChoiceSetStyle>(sharedChoiceSetInput->GetChoiceSetStyle());
         Value = UTF8ToHString(sharedChoiceSetInput->GetValue());
         Placeholder = UTF8ToHString(sharedChoiceSetInput->GetPlaceholder());
 
