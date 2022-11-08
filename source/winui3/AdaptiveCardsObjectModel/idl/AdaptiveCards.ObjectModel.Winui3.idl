@@ -1,10 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-import "Windows.Foundation.idl";
-import "Windows.Data.Json.idl";
-
-namespace AdaptiveCards.ObjectModel.Uwp
+namespace AdaptiveCards.ObjectModel.Winui3
 {
     runtimeclass AdaptiveCardParseResult;
 
