@@ -10,7 +10,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     {
         AdaptiveExecuteActionRenderer() = default;
 
-        Windows::UI::Xaml::UIElement Render(winrt::IAdaptiveActionElement const& action,
+        Microsoft::UI::Xaml::UIElement Render(winrt::IAdaptiveActionElement const& action,
                                             winrt::AdaptiveRenderContext const& renderContext,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };

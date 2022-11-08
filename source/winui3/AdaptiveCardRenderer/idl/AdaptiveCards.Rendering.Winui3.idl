@@ -1,12 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-import "inspectable.idl";
-import "Windows.Foundation.idl";
-import "Windows.UI.Xaml.idl";
-import "Windows.Data.Json.idl";
-import "AdaptiveCards.ObjectModel.Winui3.idl";
-
 namespace AdaptiveCards
 {
     namespace Rendering
@@ -47,7 +41,7 @@ namespace AdaptiveCards
 
                 AdaptiveCardResourceResolvers ResourceResolvers { get; };
                 AdaptiveHostConfig HostConfig;
-                Windows.UI.Xaml.ResourceDictionary OverrideStyles;
+                Microsoft.UI.Xaml.ResourceDictionary OverrideStyles;
                 AdaptiveFeatureRegistration FeatureRegistration;
 
                 Boolean OverflowMaxActions;
@@ -402,7 +396,7 @@ namespace AdaptiveCards
 
                 AdaptiveCards.ObjectModel.Winui3.AdaptiveCard OriginatingCard { get; };
                 AdaptiveHostConfig OriginatingHostConfig { get; };
-                Windows.UI.Xaml.FrameworkElement FrameworkElement { get; };
+                Microsoft.UI.Xaml.FrameworkElement FrameworkElement { get; };
                 AdaptiveInputs UserInputs { get; };
                 Windows.Foundation.Collections.IVector<AdaptiveCards.ObjectModel.Winui3.AdaptiveError> Errors { get; };
                 Windows.Foundation.Collections.IVector<AdaptiveCards.ObjectModel.Winui3.AdaptiveWarning> Warnings { get; };
@@ -479,7 +473,7 @@ namespace AdaptiveCards
             {
                 AdaptiveCards.ObjectModel.Winui3.IAdaptiveInputElement InputElement { get; };
                 String CurrentValue { get; };
-                Windows.UI.Xaml.UIElement ErrorMessage
+                Microsoft.UI.Xaml.UIElement ErrorMessage
                 {
                     get;
                     set;
@@ -499,7 +493,7 @@ namespace AdaptiveCards
                 AdaptiveCardResourceResolvers ResourceResolvers { get; };
                 AdaptiveActionInvoker ActionInvoker { get; };
                 AdaptiveMediaEventInvoker MediaEventInvoker { get; };
-                Windows.UI.Xaml.ResourceDictionary OverrideStyles { get; };
+                Microsoft.UI.Xaml.ResourceDictionary OverrideStyles { get; };
                 AdaptiveInputs UserInputs { get; };
                 Windows.Foundation.IReference<Boolean> Rtl;
                 Windows.Foundation.IReference<AdaptiveCards.ObjectModel.Winui3.TextStyle> TextStyle;
@@ -517,14 +511,14 @@ namespace AdaptiveCards
 
             interface IAdaptiveElementRenderer
             {
-                Windows.UI.Xaml.UIElement Render(AdaptiveCards.ObjectModel.Winui3.IAdaptiveCardElement element,
+                Microsoft.UI.Xaml.UIElement Render(AdaptiveCards.ObjectModel.Winui3.IAdaptiveCardElement element,
                                                  AdaptiveRenderContext context,
                                                  AdaptiveRenderArgs renderArgs);
             }
 
             interface IAdaptiveActionRenderer
             {
-                Windows.UI.Xaml.UIElement Render(AdaptiveCards.ObjectModel.Winui3.IAdaptiveActionElement element,
+                Microsoft.UI.Xaml.UIElement Render(AdaptiveCards.ObjectModel.Winui3.IAdaptiveActionElement element,
                                                  AdaptiveRenderContext context,
                                                  AdaptiveRenderArgs renderArgs);
             }
@@ -639,17 +633,17 @@ namespace AdaptiveCards
                 AdaptiveToggleVisibilityActionRenderer();
             }
 
-            runtimeclass TileControl : Windows.UI.Xaml.Controls.ContentControl
+            runtimeclass TileControl : Microsoft.UI.Xaml.Controls.ContentControl
             {
                 TileControl();
 
-                Windows.UI.Xaml.UIElement ResolvedImage { get; };
+                Microsoft.UI.Xaml.UIElement ResolvedImage { get; };
                 AdaptiveCards.ObjectModel.Winui3.AdaptiveBackgroundImage BackgroundImage;
                 Windows.Foundation.Size ImageSize;
-                void LoadImageBrush(Windows.UI.Xaml.UIElement uielement);
+                void LoadImageBrush(Microsoft.UI.Xaml.UIElement uielement);
             }
 
-            runtimeclass WholeItemsPanel : Windows.UI.Xaml.Controls.Panel
+            runtimeclass WholeItemsPanel : Microsoft.UI.Xaml.Controls.Panel
             {
                 WholeItemsPanel();
 
@@ -662,10 +656,10 @@ namespace AdaptiveCards
             {
                 ElementTagContent();
 
-                Windows.UI.Xaml.Controls.ColumnDefinition ColumnDefinition { get; };
+                Microsoft.UI.Xaml.Controls.ColumnDefinition ColumnDefinition { get; };
                 AdaptiveCards.ObjectModel.Winui3.IAdaptiveCardElement CardElement { get; };
-                Windows.UI.Xaml.UIElement Separator { get; };
-                Windows.UI.Xaml.Controls.Panel ParentPanel { get; };
+                Microsoft.UI.Xaml.UIElement Separator { get; };
+                Microsoft.UI.Xaml.Controls.Panel ParentPanel { get; };
                 Boolean ExpectedVisibility;
                 Boolean IsStretchable;
             }

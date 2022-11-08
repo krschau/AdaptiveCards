@@ -11,7 +11,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     {
         AdaptiveContainerRenderer() = default;
 
-        Windows::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& element,
+        Microsoft::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& element,
                                             winrt::AdaptiveRenderContext const& context,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };

@@ -9,7 +9,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     struct AdaptiveNumberInputRenderer : AdaptiveNumberInputRendererT<AdaptiveNumberInputRenderer>
     {
     public:
-        Windows::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& cardElement,
+        Microsoft::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& cardElement,
                                             winrt::AdaptiveRenderContext const& renderContext,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };
