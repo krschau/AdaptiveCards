@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectModelProjection", "Ob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdaptiveCardsObjectModel", "AdaptiveCardsObjectModel\AdaptiveCardsObjectModel.vcxproj", "{836240C9-FF34-4398-B7A0-D325C9D098CC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdaptiveCardRenderer", "AdaptiveCardRenderer\AdaptiveCardRenderer.vcxproj", "{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|arm64 = Debug|arm64
@@ -41,6 +43,18 @@ Global
 		{836240C9-FF34-4398-B7A0-D325C9D098CC}.Release|x64.Build.0 = Release|x64
 		{836240C9-FF34-4398-B7A0-D325C9D098CC}.Release|x86.ActiveCfg = Release|Win32
 		{836240C9-FF34-4398-B7A0-D325C9D098CC}.Release|x86.Build.0 = Release|Win32
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|arm64.ActiveCfg = Debug|arm64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|arm64.Build.0 = Debug|arm64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|x64.ActiveCfg = Debug|x64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|x64.Build.0 = Debug|x64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|x86.ActiveCfg = Debug|Win32
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Debug|x86.Build.0 = Debug|Win32
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|arm64.ActiveCfg = Release|arm64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|arm64.Build.0 = Release|arm64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|x64.ActiveCfg = Release|x64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|x64.Build.0 = Release|x64
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|x86.ActiveCfg = Release|Win32
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
