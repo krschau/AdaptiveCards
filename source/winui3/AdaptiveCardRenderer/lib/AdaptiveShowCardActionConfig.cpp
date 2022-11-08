@@ -5,11 +5,11 @@
 #include "AdaptiveShowCardActionConfig.h"
 #include "AdaptiveShowCardActionConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveShowCardActionConfig::AdaptiveShowCardActionConfig(::AdaptiveCards::ShowCardActionConfig const& sharedShowCardActionConfig)
     {
-        ActionMode = static_cast<winrt::AdaptiveCards::Rendering::Uwp::ActionMode>(sharedShowCardActionConfig.actionMode);
+        ActionMode = static_cast<winrt::AdaptiveCards::Rendering::Winui3::ActionMode>(sharedShowCardActionConfig.actionMode);
         Style = static_cast<winrt::ContainerStyle>(sharedShowCardActionConfig.style);
         InlineTopMargin = sharedShowCardActionConfig.inlineTopMargin;
     }

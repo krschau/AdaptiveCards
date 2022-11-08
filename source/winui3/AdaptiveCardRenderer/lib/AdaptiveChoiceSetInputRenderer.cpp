@@ -6,8 +6,8 @@
 #include "AdaptiveChoiceSetInputRenderer.g.cpp"
 #include "ParseUtil.h"
 
-using namespace AdaptiveCards::Rendering::Uwp::XamlHelpers;
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+using namespace AdaptiveCards::Rendering::Winui3::XamlHelpers;
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     winrt::UIElement AdaptiveChoiceSetInputRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                             winrt::AdaptiveRenderContext const& renderContext,
@@ -47,7 +47,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                                        cardElement.ElementTypeString(),
                                                                                        ex.message());
             return nullptr;

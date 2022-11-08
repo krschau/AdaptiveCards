@@ -5,7 +5,7 @@
 #include "AdaptiveErrorMessageConfig.h"
 #include "AdaptiveErrorMessageConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveErrorMessageConfig::AdaptiveErrorMessageConfig(::AdaptiveCards::ErrorMessageConfig errorMessageConfig)
     {

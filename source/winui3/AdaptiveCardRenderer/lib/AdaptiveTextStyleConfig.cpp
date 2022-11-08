@@ -5,6 +5,6 @@
 #include "AdaptiveTextStyleConfig.h"
 #include "AdaptiveTextStyleConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
 }

@@ -4,7 +4,7 @@
 
 #include "AdaptiveImageSetConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct AdaptiveImageSetConfig : AdaptiveImageSetConfigT<AdaptiveImageSetConfig>
     {
@@ -14,7 +14,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         property<uint32_t> MaxImageHeight;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveImageSetConfig : AdaptiveImageSetConfigT<AdaptiveImageSetConfig, implementation::AdaptiveImageSetConfig>
     {

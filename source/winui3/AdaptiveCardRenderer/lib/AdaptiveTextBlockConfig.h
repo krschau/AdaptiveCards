@@ -4,7 +4,7 @@
 
 #include "AdaptiveTextBlockConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct AdaptiveTextBlockConfig : AdaptiveTextBlockConfigT<AdaptiveTextBlockConfig>
     {
@@ -13,7 +13,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         property<uint32_t> HeadingLevel;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveTextBlockConfig : AdaptiveTextBlockConfigT<AdaptiveTextBlockConfig, implementation::AdaptiveTextBlockConfig>
     {

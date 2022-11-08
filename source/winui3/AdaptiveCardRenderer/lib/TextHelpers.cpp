@@ -8,7 +8,7 @@
 #include "XamlHelpers.h"
 #include <safeint.h>
 
-using namespace AdaptiveCards::Rendering::Uwp;
+using namespace AdaptiveCards::Rendering::Winui3;
 using namespace AdaptiveCards;
 using namespace msl::utilities;
 using namespace std::string_literals;

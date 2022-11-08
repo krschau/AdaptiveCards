@@ -6,7 +6,7 @@
 #include "AdaptiveNumberInputRenderer.g.cpp"
 #include <limits>
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     winrt::UIElement AdaptiveNumberInputRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                          winrt::AdaptiveRenderContext const& renderContext,
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         try
         {
             auto hostConfig = renderContext.HostConfig();
-            if (!::AdaptiveCards::Rendering::Uwp::XamlHelpers::SupportsInteractivity(hostConfig))
+            if (!::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig))
             {
                 renderContext.AddWarning(winrt::WarningStatusCode::InteractivityNotSupported,
                                          L"Number input was stripped from card because interactivity is not supported");
@@ -47,14 +47,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             textBox.PlaceholderText(adaptiveNumberInput.Placeholder());
             textBox.VerticalAlignment(winrt::VerticalAlignment::Top);
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Number", textBox);
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Number", textBox);
 
             // If there's any validation on this input, put the input inside a border
             auto max = adaptiveNumberInput.Max();
             auto min = adaptiveNumberInput.Min();
 
             auto [inputLayout, validationBorder] =
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::HandleInputLayoutAndValidation(adaptiveNumberInput,
+                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::HandleInputLayoutAndValidation(adaptiveNumberInput,
                                                                                              textBox,
                                                                                              (max || min),
                                                                                              renderContext);
@@ -68,7 +68,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

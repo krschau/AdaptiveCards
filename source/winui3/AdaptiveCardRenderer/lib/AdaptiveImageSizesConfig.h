@@ -4,7 +4,7 @@
 
 #include "AdaptiveImageSizesConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct AdaptiveImageSizesConfig : AdaptiveImageSizesConfigT<AdaptiveImageSizesConfig>
     {
@@ -16,7 +16,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveImageSizesConfig : AdaptiveImageSizesConfigT<AdaptiveImageSizesConfig, implementation::AdaptiveImageSizesConfig>
     {

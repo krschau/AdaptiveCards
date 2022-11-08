@@ -8,9 +8,9 @@
 #include "LinkButton.h"
 #include "AdaptiveHostConfig.h"
 
-using namespace AdaptiveCards::Rendering::Uwp::XamlHelpers;
+using namespace AdaptiveCards::Rendering::Winui3::XamlHelpers;
 
-namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
+namespace AdaptiveCards::Rendering::Winui3::ActionHelpers
 {
     winrt::Thickness GetButtonMargin(winrt::AdaptiveActionsConfig const& actionsConfig)
     {
@@ -691,7 +691,7 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
         auto showCardActionConfig = actionsConfig.ShowCard();
         auto showCardActionMode = showCardActionConfig.ActionMode();
         // ActionMode enum exists both in Rendering in ObjectModel namespaces. When the time permits, fix it.
-        if (showCardActionMode == winrt::AdaptiveCards::Rendering::Uwp::ActionMode::Inline)
+        if (showCardActionMode == winrt::AdaptiveCards::Rendering::Winui3::ActionMode::Inline)
         {
             // Get the card to be shown
             auto actionAsShowCardAction = action.as<winrt::AdaptiveShowCardAction>();
@@ -869,7 +869,7 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
                 renderArgs.AllowAboveTitleIconPlacement(false);
             }
 
-            if (currentButtonIndex < maxActions && mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary)
+            if (currentButtonIndex < maxActions && mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary)
             {
                 // If we have fewer than the maximum number of actions and this action's mode is primary, make a button
                 actionControl = CreateActionButtonInActionSet(adaptiveCard,
@@ -885,7 +885,7 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
                 currentButtonIndex++;
             }
             else if (currentButtonIndex >= maxActions &&
-                     (mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary) && !overflowMaxActions)
+                     (mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary) && !overflowMaxActions)
             {
                 // If we have more primary actions than the max actions and we're not allowed to overflow them just set a warning and continue
                 renderContext.AddWarning(winrt::WarningStatusCode::MaxActionsExceeded,
@@ -905,7 +905,7 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
                 AddOverflowFlyoutItem(action, overflowButton, adaptiveCard, adaptiveActionSet, showCardsStackPanel, renderContext, renderArgs);
 
                 // If this was supposed to be a primary action but it got overflowed due to max actions, add a warning
-                if (mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary)
+                if (mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary)
                 {
                     renderContext.AddWarning(winrt::WarningStatusCode::MaxActionsExceeded,
                                              {L"Some actions were moved to an overflow menu due to exceeding the maximum number of actions allowed"});

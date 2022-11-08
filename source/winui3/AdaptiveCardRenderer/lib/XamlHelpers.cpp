@@ -7,7 +7,7 @@
 #include "TileControl.h"
 #include "AdaptiveBase64Util.h"
 
-namespace AdaptiveCards::Rendering::Uwp::XamlHelpers
+namespace AdaptiveCards::Rendering::Winui3::XamlHelpers
 {
     constexpr PCWSTR c_BackgroundImageOverlayBrushKey = L"AdaptiveCard.BackgroundOverlayBrush";
 

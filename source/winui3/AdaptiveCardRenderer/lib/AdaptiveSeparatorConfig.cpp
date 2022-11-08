@@ -5,7 +5,7 @@
 #include "AdaptiveSeparatorConfig.h"
 #include "AdaptiveSeparatorConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveSeparatorConfig::AdaptiveSeparatorConfig(::AdaptiveCards::SeparatorConfig const& sharedSeparatorConfig)
     {

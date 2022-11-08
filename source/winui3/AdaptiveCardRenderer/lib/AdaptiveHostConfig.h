@@ -4,7 +4,7 @@
 
 #include "AdaptiveHostConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct DECLSPEC_UUID("6A0EFDB7-AC1B-4C76-981E-2188297095AD") AdaptiveHostConfig
         : AdaptiveHostConfigT<AdaptiveHostConfig, ITypePeek>
@@ -39,14 +39,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         // ITypePeek method
         void* PeekAt(REFIID riid) override { return PeekHelper(riid, this); }
 
-        static Uwp::AdaptiveHostConfigParseResult FromJsonString(hstring const& hostConfigJson);
-        static Uwp::AdaptiveHostConfigParseResult FromJson(winrt::JsonObject const& hostConfigJson);
+        static Winui3::AdaptiveHostConfigParseResult FromJsonString(hstring const& hostConfigJson);
+        static Winui3::AdaptiveHostConfigParseResult FromJson(winrt::JsonObject const& hostConfigJson);
 
     private:
-        static Uwp::AdaptiveHostConfigParseResult _FromJsonString(const std::string& jsonString);
+        static Winui3::AdaptiveHostConfigParseResult _FromJsonString(const std::string& jsonString);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveHostConfig : AdaptiveHostConfigT<AdaptiveHostConfig, implementation::AdaptiveHostConfig>
     {

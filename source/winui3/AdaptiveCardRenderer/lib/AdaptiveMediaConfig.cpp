@@ -5,7 +5,7 @@
 #include "AdaptiveMediaConfig.h"
 #include "AdaptiveMediaConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveMediaConfig::AdaptiveMediaConfig(::AdaptiveCards::MediaConfig const& mediaConfig)
     {

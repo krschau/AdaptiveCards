@@ -9,7 +9,7 @@ const double c_playIconOpacity = .5;
 const winrt::hstring supportedMimeTypes[] = {L"video/mp4", L"audio/mp4", L"audio/aac", L"audio/mpeg"};
 const std::unordered_set<winrt::hstring> supportedCaptionTypes = {L"vtt", L"srt"};
 
-namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
+namespace AdaptiveCards::Rendering::Winui3::MediaHelpers
 {
     winrt::Image GetMediaPosterAsImage(winrt::AdaptiveRenderContext const& renderContext,
                                        winrt::AdaptiveRenderArgs const& renderArgs,
@@ -79,11 +79,11 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
         playIcon.Foreground(darkBrush);
 
-        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(rectangle, posterPanel);
+        ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(rectangle, posterPanel);
         winrt::RelativePanel::SetAlignVerticalCenterWithPanel(rectangle, true);
         winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(rectangle, true);
 
-        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(playIcon, posterPanel);
+        ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(playIcon, posterPanel);
         winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(playIcon, true);
         winrt::RelativePanel::SetAlignVerticalCenterWithPanel(playIcon, true);
     }
@@ -106,7 +106,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
             playIconAsFrameworkElement.Height(c_playIconSize);
 
             // Add it to the panel and center it
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(playIconUIElement, posterPanel);
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(playIconUIElement, posterPanel);
             winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(playIconUIElement, true);
             winrt::RelativePanel::SetAlignVerticalCenterWithPanel(playIconUIElement, true);
         }
@@ -140,7 +140,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
         if (posterImage)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(posterImage, posterRelativePanel);
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(posterImage, posterRelativePanel);
         }
         AddPlayIcon(posterRelativePanel, renderContext, renderArgs);
 

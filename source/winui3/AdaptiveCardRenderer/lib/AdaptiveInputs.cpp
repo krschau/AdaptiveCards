@@ -5,7 +5,7 @@
 #include "AdaptiveInputs.g.cpp"
 #include "AdaptiveRenderArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     winrt::JsonObject AdaptiveInputs::AsJson() { return StringToJsonObject(GetInputItemsAsJsonString()); }
 
@@ -40,7 +40,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
     }
 
-    void AdaptiveInputs::LinkSubmitActionToCard(winrt::IAdaptiveActionElement const& action, Uwp::AdaptiveRenderArgs const& renderArgs)
+    void AdaptiveInputs::LinkSubmitActionToCard(winrt::IAdaptiveActionElement const& action, Winui3::AdaptiveRenderArgs const& renderArgs)
     {
         uint32_t actionId = GetInternalIdFromAction(action);
         uint32_t cardId = renderArgs.ParentCard().InternalId();
@@ -52,7 +52,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         m_parentCard[cardId] = parentCardId;
     }
 
-    Uwp::IAdaptiveInputValue AdaptiveInputs::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
+    Winui3::IAdaptiveInputValue AdaptiveInputs::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
     {
         hstring elementId = inputElement.as<winrt::IAdaptiveCardElement>().Id();
         return m_inputValues[HStringToUTF8(elementId)];

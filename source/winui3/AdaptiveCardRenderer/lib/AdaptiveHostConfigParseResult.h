@@ -4,7 +4,7 @@
 
 #include "AdaptiveHostConfigParseResult.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct AdaptiveHostConfigParseResult : AdaptiveHostConfigParseResultT<AdaptiveHostConfigParseResult>
     {
@@ -14,7 +14,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         property<winrt::IVector<winrt::AdaptiveError>> Errors;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveHostConfigParseResult
         : AdaptiveHostConfigParseResultT<AdaptiveHostConfigParseResult, implementation::AdaptiveHostConfigParseResult>

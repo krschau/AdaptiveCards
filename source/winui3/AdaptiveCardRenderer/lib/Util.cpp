@@ -30,7 +30,7 @@
 #include "AdaptiveExecuteActionRenderer.h"
 
 using namespace AdaptiveCards;
-using namespace AdaptiveCards::Rendering::Uwp;
+using namespace AdaptiveCards::Rendering::Winui3;
 
 std::string WStringToString(std::wstring_view in)
 {
@@ -593,7 +593,7 @@ winrt::IAdaptiveTextElement CopyTextElement(winrt::IAdaptiveTextElement const& t
     return nullptr;
 }
 
-namespace AdaptiveCards::Rendering::Uwp
+namespace AdaptiveCards::Rendering::Winui3
 {
     void RegisterDefaultElementRenderers(winrt::implementation::AdaptiveElementRendererRegistration* registration,
                                          winrt::com_ptr<XamlBuilder> xamlBuilder)

@@ -5,7 +5,7 @@
 #include "AdaptiveToggleInputRenderer.h"
 #include "AdaptiveToggleInputRenderer.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     winrt::UIElement AdaptiveToggleInputRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                          winrt::AdaptiveRenderContext const& renderContext,
@@ -14,7 +14,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         try
         {
             auto hostConfig = renderContext.HostConfig();
-            if (!::AdaptiveCards::Rendering::Uwp::XamlHelpers::SupportsInteractivity(hostConfig))
+            if (!::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig))
             {
                 renderContext.AddWarning(winrt::WarningStatusCode::InteractivityNotSupported,
                                          L"Toggle Input was stripped from card because interactivity is not supported");
@@ -25,7 +25,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
 
             winrt::CheckBox checkBox{};
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetContent(checkBox,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetContent(checkBox,
                                                                      adaptiveToggleInput.Title(),
                                                                      adaptiveToggleInput.Wrap());
 
@@ -34,10 +34,10 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                             { return args.Handled(true); });
 
             checkBox.VerticalAlignment(winrt::VerticalAlignment::Top);
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Toggle", checkBox);
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Toggle", checkBox);
 
             winrt::UIElement inputLayout{nullptr};
-            std::tie(inputLayout, std::ignore) = ::AdaptiveCards::Rendering::Uwp::XamlHelpers::HandleInputLayoutAndValidation(
+            std::tie(inputLayout, std::ignore) = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::HandleInputLayoutAndValidation(
                 adaptiveToggleInput, checkBox, false, renderContext, false);
 
             auto input = winrt::make<winrt::ToggleInputValue>(adaptiveToggleInput, checkBox, nullptr);
@@ -46,7 +46,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

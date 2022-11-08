@@ -5,7 +5,7 @@
 #include "RenderedAdaptiveCard.h"
 #include "AdaptiveActionInvoker.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     struct AdaptiveActionInvoker : AdaptiveActionInvokerT<AdaptiveActionInvoker>
     {
@@ -18,7 +18,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         winrt::weak_ref<winrt::RenderedAdaptiveCard> m_weakRenderResult;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveActionInvoker : AdaptiveActionInvokerT<AdaptiveActionInvoker, implementation::AdaptiveActionInvoker>
     {

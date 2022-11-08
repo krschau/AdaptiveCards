@@ -7,7 +7,7 @@
 #include "Util.h"
 #include "ActionHelpers.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     winrt::UIElement AdaptiveOpenUrlActionRenderer::Render(winrt::IAdaptiveActionElement const& action,
                                                            winrt::AdaptiveRenderContext const& renderContext,
@@ -15,11 +15,11 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     {
         try
         {
-            return ::AdaptiveCards::Rendering::Uwp::ActionHelpers::BuildAction(action, renderContext, renderArgs, false);
+            return ::AdaptiveCards::Rendering::Winui3::ActionHelpers::BuildAction(action, renderContext, renderArgs, false);
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              action.ActionTypeString(),
                                                                              ex.message());
             return nullptr;

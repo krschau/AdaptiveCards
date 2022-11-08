@@ -4,7 +4,7 @@
 
 #include "winrt/AdaptiveCards.Rendering.Winui3.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp
+namespace winrt::AdaptiveCards::Rendering::Winui3
 {
     // Base class for input values. The InputValue is responsible for getting the current value and submit time, and also handles input validation.
     struct DECLSPEC_UUID("BB1D1269-2243-4F34-B4EC-5216296EBBA0") InputValue : public winrt::implements<InputValue, IAdaptiveInputValue>

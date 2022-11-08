@@ -5,7 +5,7 @@
 #include "AdaptiveContainerStyleDefinition.g.cpp"
 #include "AdaptiveColorsConfig.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveContainerStyleDefinition::AdaptiveContainerStyleDefinition(::AdaptiveCards::ContainerStyleDefinition styleDefinition) :
         ForegroundColors{winrt::make<implementation::AdaptiveColorsConfig>(styleDefinition.foregroundColors)},

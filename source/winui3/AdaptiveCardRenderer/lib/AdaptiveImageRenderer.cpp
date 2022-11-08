@@ -10,9 +10,9 @@
 #include "AdaptiveCardGetResourceStreamArgs.h"
 #include <robuffer.h>
 
-typedef ::AdaptiveCards::Rendering::Uwp::XamlBuilder XamlBuilder;
+typedef ::AdaptiveCards::Rendering::Winui3::XamlBuilder XamlBuilder;
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveImageRenderer::AdaptiveImageRenderer(winrt::com_ptr<XamlBuilder> xamlBuilder) : m_xamlBuilder(xamlBuilder)
     {
@@ -28,7 +28,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                                        cardElement.ElementTypeString(),
                                                                                        ex.message());
             return nullptr;
@@ -36,7 +36,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     }
 }
 
-namespace AdaptiveCards::Rendering::Uwp
+namespace AdaptiveCards::Rendering::Winui3
 {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //
@@ -123,8 +123,8 @@ namespace AdaptiveCards::Rendering::Uwp
 
                 // Create a grid to contain the background color ellipse and the image ellipse
                 winrt::Grid imageGrid{};
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(backgroundEllipse, imageGrid);
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(ellipse, imageGrid);
+                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(backgroundEllipse, imageGrid);
+                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(ellipse, imageGrid);
 
                 frameworkElement = imageGrid;
             }
@@ -255,7 +255,7 @@ namespace AdaptiveCards::Rendering::Uwp
         }
 
         frameworkElement.VerticalAlignment(winrt::VerticalAlignment::Top);
-        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Image", frameworkElement);
+        ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Image", frameworkElement);
 
         auto selectAction = adaptiveImage.SelectAction();
 
@@ -267,7 +267,7 @@ namespace AdaptiveCards::Rendering::Uwp
                                                  selectAction,
                                                  renderContext,
                                                  frameworkElement,
-                                                 ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SupportsInteractivity(hostConfig),
+                                                 ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig),
                                                  true);
     }
 
@@ -524,7 +524,7 @@ namespace AdaptiveCards::Rendering::Uwp
                                 winrt::FrameworkElement k{nullptr};
                                 winrt::BitmapSource as{nullptr};
 
-                                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetAutoImageSize(ellipse,
+                                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetAutoImageSize(ellipse,
                                                                                                lambdaParentElement,
                                                                                                lamdaImageSourceAsBitmap,
                                                                                                isVisible);
@@ -534,7 +534,7 @@ namespace AdaptiveCards::Rendering::Uwp
             }
             else
             {
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetAutoImageSize(ellipse, parentElement, imageSourceAsBitmap, isVisible);
+                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetAutoImageSize(ellipse, parentElement, imageSourceAsBitmap, isVisible);
             }
         }
     }
@@ -574,7 +574,7 @@ namespace AdaptiveCards::Rendering::Uwp
                         {
                             if (const auto lambdaParentElement = weakParent.get())
                             {
-                                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetAutoImageSize(lambdaImageAsFrameworkElement,
+                                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetAutoImageSize(lambdaImageAsFrameworkElement,
                                                                                                lambdaParentElement,
                                                                                                imageSourceAsBitmapSource,
                                                                                                isVisible);
@@ -584,7 +584,7 @@ namespace AdaptiveCards::Rendering::Uwp
             }
             else
             {
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetAutoImageSize(xamlImage, parentElement, imageSourceAsBitmapSource, isVisible);
+                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetAutoImageSize(xamlImage, parentElement, imageSourceAsBitmapSource, isVisible);
             }
         }
     }

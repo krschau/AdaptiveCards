@@ -6,16 +6,16 @@
 #include "AdaptiveCardRenderer.g.h"
 #include "AdaptiveHostConfig.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     // This class is effectively a singleton, and stays around between subsequent renders.
     struct AdaptiveCardRenderer : AdaptiveCardRendererT<AdaptiveCardRenderer>
     {
     private:
         winrt::ResourceDictionary m_overrideDictionary;
-        Uwp::AdaptiveHostConfig m_hostConfig;
-        Uwp::AdaptiveFeatureRegistration m_featureRegistration;
-        winrt::com_ptr<::AdaptiveCards::Rendering::Uwp::XamlBuilder> m_xamlBuilder;
+        Winui3::AdaptiveHostConfig m_hostConfig;
+        Winui3::AdaptiveFeatureRegistration m_featureRegistration;
+        winrt::com_ptr<::AdaptiveCards::Rendering::Winui3::XamlBuilder> m_xamlBuilder;
         bool m_explicitDimensions = false;
         uint32_t m_desiredWidth = 0;
         uint32_t m_desiredHeight = 0;
@@ -43,14 +43,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             UpdateActionSentimentResourceDictionary();
         }
 
-        Uwp::AdaptiveHostConfig HostConfig() { return m_hostConfig; }
+        Winui3::AdaptiveHostConfig HostConfig() { return m_hostConfig; }
 
         void FeatureRegistration(winrt::AdaptiveFeatureRegistration const& featureRegistration)
         {
             m_featureRegistration = featureRegistration;
         }
 
-        Uwp::AdaptiveFeatureRegistration FeatureRegistration();
+        Winui3::AdaptiveFeatureRegistration FeatureRegistration();
 
         void SetFixedDimensions(uint32_t desiredWidth, uint32_t desiredHeight);
         void ResetFixedDimensions() { m_explicitDimensions = false; };
@@ -70,16 +70,16 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             return GetHostConfig()->OverflowButtonAccessibilityText = text;
         }
 
-        Uwp::RenderedAdaptiveCard RenderAdaptiveCard(winrt::AdaptiveCard const& adaptiveCard);
-        Uwp::RenderedAdaptiveCard RenderAdaptiveCardFromJsonString(hstring const& adaptiveJson);
-        Uwp::RenderedAdaptiveCard RenderAdaptiveCardFromJson(winrt::JsonObject const& adaptiveJson);
+        Winui3::RenderedAdaptiveCard RenderAdaptiveCard(winrt::AdaptiveCard const& adaptiveCard);
+        Winui3::RenderedAdaptiveCard RenderAdaptiveCardFromJsonString(hstring const& adaptiveJson);
+        Winui3::RenderedAdaptiveCard RenderAdaptiveCardFromJson(winrt::JsonObject const& adaptiveJson);
 
-        Uwp::AdaptiveElementRendererRegistration ElementRenderers() { return *m_elementRendererRegistration; }
-        Uwp::AdaptiveActionRendererRegistration ActionRenderers() { return *m_actionRendererRegistration; }
+        Winui3::AdaptiveElementRendererRegistration ElementRenderers() { return *m_elementRendererRegistration; }
+        Winui3::AdaptiveActionRendererRegistration ActionRenderers() { return *m_actionRendererRegistration; }
 
         winrt::ResourceDictionary GetMergedDictionary() { return m_mergedResourceDictionary; }
         bool GetFixedDimensions(_Out_ uint32_t* width, _Out_ uint32_t* height);
-        winrt::com_ptr<::AdaptiveCards::Rendering::Uwp::XamlBuilder> GetXamlBuilder() { return m_xamlBuilder; }
+        winrt::com_ptr<::AdaptiveCards::Rendering::Winui3::XamlBuilder> GetXamlBuilder() { return m_xamlBuilder; }
         winrt::ResourceDictionary GetActionSentimentResourceDictionary()
         {
             return m_actionSentimentResourceDictionary;
@@ -96,12 +96,12 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         winrt::ResourceDictionary m_defaultResourceDictionary;
         winrt::ResourceDictionary m_mergedResourceDictionary;
         winrt::ResourceDictionary m_actionSentimentResourceDictionary;
-        Uwp::AdaptiveCardResourceResolvers m_resourceResolvers;
+        Winui3::AdaptiveCardResourceResolvers m_resourceResolvers;
         winrt::com_ptr<implementation::AdaptiveElementRendererRegistration> m_elementRendererRegistration;
         winrt::com_ptr<implementation::AdaptiveActionRendererRegistration> m_actionRendererRegistration;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
 {
     struct AdaptiveCardRenderer : AdaptiveCardRendererT<AdaptiveCardRenderer, implementation::AdaptiveCardRenderer>
     {

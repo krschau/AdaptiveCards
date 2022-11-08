@@ -5,7 +5,7 @@
 #include "AdaptiveInputsConfig.h"
 #include "AdaptiveInputsConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 {
     AdaptiveInputsConfig::AdaptiveInputsConfig(::AdaptiveCards::InputsConfig const& inputsConfig) :
         ErrorMessage{winrt::make<implementation::AdaptiveErrorMessageConfig>(inputsConfig.errorMessage)},
