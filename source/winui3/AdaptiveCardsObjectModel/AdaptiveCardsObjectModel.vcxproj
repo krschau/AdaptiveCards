@@ -294,11 +294,6 @@
     <ClCompile Include="dll\dll.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ObjectModelProjection\ObjectModelProjection.vcxproj">
-      <Project>{924d89fb-e6b9-472c-9d2e-6a8fb4a10c66}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Midl Include="idl\AdaptiveCards.ObjectModel.Winui3.idl">
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <!-- Enable Windows Runtime ABI header files. when /reference is passed to midl.exe, the ABI head includes headers
@@ -315,6 +310,11 @@
     <Text Include="readme.txt">
       <DeploymentContent>false</DeploymentContent>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\uwp\ObjectModelProjection\ObjectModelProjection.vcxproj">
+      <Project>{2d040c7d-757a-4292-bb59-62bc53a83c9f}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

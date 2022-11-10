@@ -305,9 +305,6 @@
     <ProjectReference Include="..\AdaptiveCardsObjectModel\AdaptiveCardsObjectModel.vcxproj">
       <Project>{836240c9-ff34-4398-b7a0-d325c9d098cc}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\ObjectModelProjection\ObjectModelProjection.vcxproj">
-      <Project>{924d89fb-e6b9-472c-9d2e-6a8fb4a10c66}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="idl\AdaptiveCards.Rendering.Winui3.idl">
