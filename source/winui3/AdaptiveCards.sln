@@ -15,6 +15,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdaptiveCardRenderer", "Ada
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectModelProjection", "..\uwp\ObjectModelProjection\ObjectModelProjection.vcxproj", "{2D040C7D-757A-4292-BB59-62BC53A83C9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveCardVisualizer", "AdaptiveCardVisualizer\AdaptiveCardVisualizer.csproj", "{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1} = {2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -75,6 +80,30 @@ Global
 		{2D040C7D-757A-4292-BB59-62BC53A83C9F}.Release|x64.Build.0 = Release|x64
 		{2D040C7D-757A-4292-BB59-62BC53A83C9F}.Release|x86.ActiveCfg = Release|Win32
 		{2D040C7D-757A-4292-BB59-62BC53A83C9F}.Release|x86.Build.0 = Release|Win32
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|ARM.ActiveCfg = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|ARM.Build.0 = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|ARM.Deploy.0 = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|arm64.ActiveCfg = Debug|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|arm64.Build.0 = Debug|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|arm64.Deploy.0 = Debug|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x64.ActiveCfg = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x64.Build.0 = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x64.Deploy.0 = Debug|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x86.ActiveCfg = Debug|x86
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x86.Build.0 = Debug|x86
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Debug|x86.Deploy.0 = Debug|x86
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|ARM.ActiveCfg = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|ARM.Build.0 = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|ARM.Deploy.0 = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|arm64.ActiveCfg = Release|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|arm64.Build.0 = Release|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|arm64.Deploy.0 = Release|arm64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x64.ActiveCfg = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x64.Build.0 = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x64.Deploy.0 = Release|x64
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x86.ActiveCfg = Release|x86
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x86.Build.0 = Release|x86
+		{4A2D131D-E9E5-4FBF-B29A-B18094F828B6}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
