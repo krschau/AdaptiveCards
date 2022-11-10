@@ -104,7 +104,7 @@ namespace winrt
     using Orientation = ::winrt::Microsoft::UI::Xaml::Controls::Orientation;
     using Style = ::winrt::Microsoft::UI::Xaml::Style;
     using Grid = ::winrt::Microsoft::UI::Xaml::Controls::Grid;
-    //using MediaElement = ::winrt::Microsoft::UI::Xaml::Controls::MediaElement;
+    using MediaPlayerElement = ::winrt::Microsoft::UI::Xaml::Controls::MediaPlayerElement;
     using RichTextBlock = ::winrt::Microsoft::UI::Xaml::Controls::RichTextBlock;
     using Canvas = ::winrt::Microsoft::UI::Xaml::Controls::Canvas;
     using Visibility = ::winrt::Microsoft::UI::Xaml::Visibility;

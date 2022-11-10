@@ -9,6 +9,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdaptiveCardsObjectModel", 
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdaptiveCardRenderer", "AdaptiveCardRenderer\AdaptiveCardRenderer.vcxproj", "{2FF2971C-73B9-4DFC-9962-2F8B2F39EFA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D040C7D-757A-4292-BB59-62BC53A83C9F} = {2D040C7D-757A-4292-BB59-62BC53A83C9F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectModelProjection", "..\uwp\ObjectModelProjection\ObjectModelProjection.vcxproj", "{2D040C7D-757A-4292-BB59-62BC53A83C9F}"
 EndProject
