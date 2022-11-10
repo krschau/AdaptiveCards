@@ -3,7 +3,6 @@
 #pragma once
 #include <string>
 
-#include "AdaptiveCards.Rendering.Winui3.h"
 #include "InputValue.h"
 #include <BaseCardElement.h>
 #include <BaseActionElement.h>

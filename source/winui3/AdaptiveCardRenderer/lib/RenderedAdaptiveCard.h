@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 #pragma once
 
-#include "AdaptiveCards.Rendering.Winui3.h"
 #include "util.h"
 #include "InputValue.h"
 #include "AdaptiveInputs.h"
