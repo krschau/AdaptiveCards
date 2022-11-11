@@ -7,10 +7,10 @@ using System.Linq;
 using AdaptiveCards.Rendering.Uwp;
 using AdaptiveCards.ObjectModel.Uwp;
 using Windows.Data.Json;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace XamlCardVisualizer.CustomElements
 {

@@ -10,9 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using XamlCardVisualizer.CustomElements;
 
 namespace AdaptiveCardVisualizer.ViewModel
@@ -184,7 +184,7 @@ namespace AdaptiveCardVisualizer.ViewModel
 
                 if (RenderedCard is FrameworkElement)
                 {
-                    (RenderedCard as FrameworkElement).VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Top;
+                    (RenderedCard as FrameworkElement).VerticalAlignment = Microsoft.UI.Xaml.VerticalAlignment.Top;
                 }
                 errors = newErrors;
                 TimeCounter.ResetCounter();
