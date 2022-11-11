@@ -21,7 +21,7 @@
         <local:GenericDocumentView x:Name="GenericDocumentViewName"/>
 
         <!--Vertical draggable column splitter-->
-        <toolkitControls:GridSplitter
+        <!-- <toolkitControls:GridSplitter
             AutomationProperties.Name="Content splitter"
             Width="11"
             Background="{ThemeResource SystemControlBackgroundAccentBrush}"
@@ -31,7 +31,7 @@
             ResizeDirection="Auto"
             ResizeBehavior="BasedOnAlignment"
             CursorBehavior="ChangeOnSplitterHover"
-            GripperForeground="White"/>
+            GripperForeground="White"/> -->
 
         <!--Preview-->
         <Grid
