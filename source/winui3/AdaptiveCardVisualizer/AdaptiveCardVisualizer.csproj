@@ -26,7 +26,7 @@
     package has not yet been restored.
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
-    <ProjectCapability Include="Msix"/>
+    <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ObjectModelCsProjection\ObjectModelCsProjection.csproj" />
@@ -41,4 +41,13 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <ItemGroup>
+    <CustomAdditionalCompileInputs Remove="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="MainPage.xaml" />
+  </ItemGroup>
 </Project>
