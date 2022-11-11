@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SimpleVisualizer (Package)": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": true
+    },
+    "SimpleVisualizer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
