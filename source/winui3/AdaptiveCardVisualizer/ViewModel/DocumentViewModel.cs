@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-using AdaptiveCards.ObjectModel.Uwp;
-using AdaptiveCards.Rendering.Uwp;
+using AdaptiveCards.ObjectModel.Winui3;
+using AdaptiveCards.Rendering.Winui3;
 using AdaptiveCardVisualizer.Helpers;
 using AdaptiveCardVisualizer.ResourceResolvers;
 using System;

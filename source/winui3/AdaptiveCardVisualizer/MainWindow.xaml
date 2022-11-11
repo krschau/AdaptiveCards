@@ -8,12 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Window.Resources>
-        <Style x:Key="CommandButton" TargetType="Button">
-            <Setter Property="Margin" Value="5,0,0,0"/>
-        </Style>  
-    </Window.Resources>
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
