@@ -5,9 +5,9 @@
         <AdaptiveCards-Platform Condition="'$(Platform)' != 'Win32'">$(Platform)</AdaptiveCards-Platform>
     </PropertyGroup>
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\native\AdaptiveCards.ObjectModel.Uwp.winmd">
-            <Implementation>AdaptiveCards.ObjectModel.Uwp.dll</Implementation>
+        <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\native\AdaptiveCards.ObjectModel.Winui3.winmd">
+            <Implementation>AdaptiveCards.ObjectModel.Winui3.dll</Implementation>
         </Reference>
-        <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\runtimes\win10-$(AdaptiveCards-Platform)\native\AdaptiveCards.ObjectModel.Uwp.dll" />
+        <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\runtimes\win10-$(AdaptiveCards-Platform)\native\AdaptiveCards.ObjectModel.Winui3.dll" />
     </ItemGroup>
 </Project>
