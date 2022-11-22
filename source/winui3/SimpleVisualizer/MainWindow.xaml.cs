@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Windows.ApplicationModel;
 
-using AdaptiveCards.ObjectModel.Winui3;
+using AdaptiveCards.ObjectModel.Uwp;
 using Newtonsoft.Json;
 
 using AdaptiveCardRenderer = AdaptiveCards.Rendering.Winui3.AdaptiveCardRenderer;

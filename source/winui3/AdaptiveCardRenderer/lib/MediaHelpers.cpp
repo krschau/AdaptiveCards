@@ -288,7 +288,7 @@ namespace AdaptiveCards::Rendering::Winui3::MediaHelpers
             }
 
             mediaElement.MediaPlayer().MediaOpened(
-                [](winrt::IInspectable const& sender, winrt::RoutedEventArgs const& args) -> void
+                [](winrt::IInspectable const& sender, winrt::IInspectable const&) -> void
                 {
                     if (const auto mediaElement = sender.try_as<winrt::MediaPlayerElement>())
                     {

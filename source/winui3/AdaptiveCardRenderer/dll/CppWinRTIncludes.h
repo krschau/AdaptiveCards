@@ -26,7 +26,7 @@
 #include <winrt/Windows.Media.Core.h>
 #include <winrt/Windows.Media.Playback.h>
 #include <winrt/Windows.Data.Xml.Dom.h>
-#include <winrt/AdaptiveCards.ObjectModel.Winui3.h>
+#include <winrt/AdaptiveCards.ObjectModel.Uwp.h>
 #include <winrt/Windows.UI.Text.h>
 
 namespace winrt
@@ -49,7 +49,7 @@ namespace winrt
     using namespace ::winrt::Microsoft::UI::Xaml::Markup;
     using namespace ::winrt::Microsoft::UI::Xaml::Media::Imaging;
     using namespace ::winrt::Microsoft::UI::Xaml::Shapes;
-    using namespace ::winrt::AdaptiveCards::ObjectModel::Winui3;
+    using namespace ::winrt::AdaptiveCards::ObjectModel::Uwp;
     
     // In order to avoid "namespace not defined" errors we have to define the namespace here too.
     namespace AdaptiveCards::Rendering::Winui3{}

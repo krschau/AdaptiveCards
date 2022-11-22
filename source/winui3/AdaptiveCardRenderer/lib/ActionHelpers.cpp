@@ -869,7 +869,7 @@ namespace AdaptiveCards::Rendering::Winui3::ActionHelpers
                 renderArgs.AllowAboveTitleIconPlacement(false);
             }
 
-            if (currentButtonIndex < maxActions && mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary)
+            if (currentButtonIndex < maxActions && mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary)
             {
                 // If we have fewer than the maximum number of actions and this action's mode is primary, make a button
                 actionControl = CreateActionButtonInActionSet(adaptiveCard,
@@ -885,7 +885,7 @@ namespace AdaptiveCards::Rendering::Winui3::ActionHelpers
                 currentButtonIndex++;
             }
             else if (currentButtonIndex >= maxActions &&
-                     (mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary) && !overflowMaxActions)
+                     (mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary) && !overflowMaxActions)
             {
                 // If we have more primary actions than the max actions and we're not allowed to overflow them just set a warning and continue
                 renderContext.AddWarning(winrt::WarningStatusCode::MaxActionsExceeded,
@@ -905,7 +905,7 @@ namespace AdaptiveCards::Rendering::Winui3::ActionHelpers
                 AddOverflowFlyoutItem(action, overflowButton, adaptiveCard, adaptiveActionSet, showCardsStackPanel, renderContext, renderArgs);
 
                 // If this was supposed to be a primary action but it got overflowed due to max actions, add a warning
-                if (mode == winrt::AdaptiveCards::ObjectModel::Winui3::ActionMode::Primary)
+                if (mode == winrt::AdaptiveCards::ObjectModel::Uwp::ActionMode::Primary)
                 {
                     renderContext.AddWarning(winrt::WarningStatusCode::MaxActionsExceeded,
                                              {L"Some actions were moved to an overflow menu due to exceeding the maximum number of actions allowed"});
