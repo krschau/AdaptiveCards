@@ -7,7 +7,7 @@
 #include "InputValue.h"
 #include "Util.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveRenderContext::AdaptiveRenderContext() :
         HostConfig{nullptr}, FeatureRegistration{nullptr}, ElementRenderers{nullptr}, ActionRenderers{nullptr},
@@ -16,11 +16,11 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     {
     }
 
-    AdaptiveRenderContext::AdaptiveRenderContext(Rendering::Winui3::AdaptiveHostConfig const& hostConfig,
-                                                 Rendering::Winui3::AdaptiveFeatureRegistration const& featureRegistration,
-                                                 Rendering::Winui3::AdaptiveElementRendererRegistration const& elementRendererRegistration,
-                                                 Rendering::Winui3::AdaptiveActionRendererRegistration const& actionRendererRegistration,
-                                                 Rendering::Winui3::AdaptiveCardResourceResolvers const& resourceResolvers,
+    AdaptiveRenderContext::AdaptiveRenderContext(XamlRendering::AdaptiveHostConfig const& hostConfig,
+                                                 XamlRendering::AdaptiveFeatureRegistration const& featureRegistration,
+                                                 XamlRendering::AdaptiveElementRendererRegistration const& elementRendererRegistration,
+                                                 XamlRendering::AdaptiveActionRendererRegistration const& actionRendererRegistration,
+                                                 XamlRendering::AdaptiveCardResourceResolvers const& resourceResolvers,
                                                  winrt::ResourceDictionary const& overrideStyles,
                                                  winrt::ResourceDictionary const& defaultActionSentimentStyles,
                                                  winrt::com_ptr<implementation::RenderedAdaptiveCard> const& renderResult) :
@@ -37,7 +37,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         }
     }
 
-    Winui3::AdaptiveInputs AdaptiveRenderContext::UserInputs() { return GetRenderResult()->UserInputs(); }
+    XamlRendering::AdaptiveInputs AdaptiveRenderContext::UserInputs() { return GetRenderResult()->UserInputs(); }
 
     void AdaptiveRenderContext::AddError(winrt::ErrorStatusCode statusCode, hstring const& message)
     {
@@ -52,7 +52,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     void AdaptiveRenderContext::AddInlineShowCard(winrt::AdaptiveActionSet const& actionSet,
                                                   winrt::AdaptiveShowCardAction const& showCardAction,
                                                   winrt::UIElement const& showCardUIElement,
-                                                  Winui3::AdaptiveRenderArgs const& renderArgs)
+                                                  XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         GetRenderResult()->AddInlineShowCard(actionSet, showCardAction, showCardUIElement, renderArgs);
     }
@@ -60,7 +60,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     void AdaptiveRenderContext::AddInlineShowCard(winrt::AdaptiveCard const& adaptiveCard,
                                                   winrt::AdaptiveShowCardAction const& showCardAction,
                                                   winrt::UIElement const& showCardUIElement,
-                                                  Winui3::AdaptiveRenderArgs const& renderArgs)
+                                                  XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         GetRenderResult()->AddInlineShowCard(adaptiveCard, showCardAction, showCardUIElement, renderArgs);
     }
@@ -84,7 +84,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     }
 
     void AdaptiveRenderContext::LinkSubmitActionToCard(winrt::IAdaptiveActionElement const& submitAction,
-                                                       Winui3::AdaptiveRenderArgs const& renderArgs)
+                                                       XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         if (auto renderResult = GetRenderResult())
         {
@@ -100,7 +100,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         }
     }
 
-    Winui3::IAdaptiveInputValue AdaptiveRenderContext::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
+    XamlRendering::IAdaptiveInputValue AdaptiveRenderContext::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
     {
         if (auto renderResult = GetRenderResult())
         {

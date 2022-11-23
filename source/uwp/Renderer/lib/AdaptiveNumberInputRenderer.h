@@ -4,19 +4,19 @@
 
 #include "AdaptiveNumberInputRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveNumberInputRenderer : AdaptiveNumberInputRendererT<AdaptiveNumberInputRenderer>
     {
     public:
-        Windows::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& cardElement,
+        xaml::UIElement Render(winrt::IAdaptiveCardElement const& cardElement,
                                             winrt::AdaptiveRenderContext const& renderContext,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };
 
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveNumberInputRenderer
         : AdaptiveNumberInputRendererT<AdaptiveNumberInputRenderer, implementation::AdaptiveNumberInputRenderer>

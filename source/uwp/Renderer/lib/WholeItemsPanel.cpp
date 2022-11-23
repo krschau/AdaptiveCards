@@ -11,7 +11,7 @@
 
 static const float OutsidePanelY = -1000.0f;
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     uint32_t WholeItemsPanel::s_bleedMargin = 0;
 
@@ -373,7 +373,6 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         winrt::Thickness margins = shape.Margin();
         const double effectiveAvailableWidth = availableWidth - margins.Left - margins.Right;
         const double effectiveAvailableHeight = availableHeight - margins.Top - margins.Bottom;
-        const double minSize = std::min(effectiveAvailableWidth, effectiveAvailableHeight);
         shape.Width(effectiveAvailableWidth);
         shape.Height(effectiveAvailableHeight);
     }

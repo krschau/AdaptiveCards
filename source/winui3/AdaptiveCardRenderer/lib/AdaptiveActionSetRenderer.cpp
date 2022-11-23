@@ -8,7 +8,7 @@
 #include "ActionHelpers.h"
 #include "AdaptiveRenderArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveActionSetRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                        winrt::AdaptiveRenderContext const& renderContext,
@@ -18,7 +18,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         {
             auto hostConfig = renderContext.HostConfig();
 
-            if (!::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig))
+            if (!::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SupportsInteractivity(hostConfig))
             {
                 renderContext.AddWarning(winrt::WarningStatusCode::InteractivityNotSupported,
                                          L"ActionSet was stripped from card because interactivity is not supported");
@@ -30,13 +30,13 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
                 auto adaptiveActionSet = cardElement.as<winrt::AdaptiveActionSet>();
                 auto actions = adaptiveActionSet.Actions();
 
-                return ::AdaptiveCards::Rendering::Winui3::ActionHelpers::BuildActionSetHelper(
+                return ::AdaptiveCards::Rendering::XamlRendering::ActionHelpers::BuildActionSetHelper(
                     nullptr, adaptiveActionSet, actions, renderContext, renderArgs);
             }
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext, cardElement.ElementTypeString(), ex.message());
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext, cardElement.ElementTypeString(), ex.message());
             return nullptr;
         }
     }

@@ -4,7 +4,7 @@
 
 #include "AdaptiveSpacingConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveSpacingConfig : AdaptiveSpacingConfigT<AdaptiveSpacingConfig>
     {
@@ -18,7 +18,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<uint32_t> Padding;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveSpacingConfig : AdaptiveSpacingConfigT<AdaptiveSpacingConfig, implementation::AdaptiveSpacingConfig>
     {

@@ -4,14 +4,14 @@
 #include "AdaptiveCardResourceResolvers.h"
 #include "AdaptiveCardResourceResolvers.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     void AdaptiveCardResourceResolvers::Set(hstring const& scheme, winrt::IAdaptiveCardResourceResolver const& resolver)
     {
         m_resourceResolvers[scheme] = resolver;
     }
 
-    Uwp::IAdaptiveCardResourceResolver AdaptiveCardResourceResolvers::Get(hstring const& scheme)
+    XamlRendering::IAdaptiveCardResourceResolver AdaptiveCardResourceResolvers::Get(hstring const& scheme)
     {
         auto found = m_resourceResolvers.find(scheme);
         if (found != m_resourceResolvers.end())

@@ -4,7 +4,7 @@
 
 #include "AdaptiveHighlightColorConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveHighlightColorConfig : AdaptiveHighlightColorConfigT<AdaptiveHighlightColorConfig>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveHighlightColorConfig
         : AdaptiveHighlightColorConfigT<AdaptiveHighlightColorConfig, implementation::AdaptiveHighlightColorConfig>

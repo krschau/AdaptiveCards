@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 #pragma once
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveTextStyleConfigBase
     {

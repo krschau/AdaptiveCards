@@ -53,6 +53,9 @@ namespace winrt
     
     // In order to avoid "namespace not defined" errors we have to define the namespace here too.
     namespace AdaptiveCards::Rendering::Winui3{}
+
+#define XamlRendering Winui3
+
     using namespace ::winrt::AdaptiveCards::Rendering::Winui3;
 
     namespace AdaptiveCards::Rendering::Winui3::implementation{}
@@ -60,6 +63,8 @@ namespace winrt
     {
         using namespace ::winrt::AdaptiveCards::Rendering::Winui3::implementation;
     }
+
+    namespace xaml = winrt::Microsoft::UI::Xaml;
 
     using Brush = winrt::Microsoft::UI::Xaml::Media::Brush;
     using FontFamily = winrt::Microsoft::UI::Xaml::Media::FontFamily;
@@ -71,9 +76,6 @@ namespace winrt
     using AlignmentX = ::winrt::Microsoft::UI::Xaml::Media::AlignmentX;
     using AlignmentY = ::winrt::Microsoft::UI::Xaml::Media::AlignmentY;
 
-    using UIElement = ::winrt::Microsoft::UI::Xaml::UIElement;
-    using ResourceDictionary = ::winrt::Microsoft::UI::Xaml::ResourceDictionary;
-    using RoutedEventArgs = ::winrt::Microsoft::UI::Xaml::RoutedEventArgs;
     using Selector = ::winrt::Microsoft::UI::Xaml::Controls::Primitives::Selector;
     using TextBox = ::winrt::Microsoft::UI::Xaml::Controls::TextBox;
     using TimePicker = ::winrt::Microsoft::UI::Xaml::Controls::TimePicker;
@@ -144,10 +146,6 @@ namespace winrt
 
     // using namespace winrt::Windows::Globalization::DateTimeFormatting;
     using DateTimeFormatter = ::winrt::Windows::Globalization::DateTimeFormatting::DateTimeFormatter;
-
-    // using namespace winrt::Windows::UI::Core;
-    using CoreWindow = ::winrt::Windows::UI::Core::CoreWindow;
-    using CoreVirtualKeyStates = ::winrt::Windows::UI::Core::CoreVirtualKeyStates;
 
     // using namespace winrt::Windows::Web::Http
     using HttpProgress = ::winrt::Windows::Web::Http::HttpProgress;

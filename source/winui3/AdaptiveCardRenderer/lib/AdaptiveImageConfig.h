@@ -4,7 +4,7 @@
 
 #include "AdaptiveImageConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveImageConfig : AdaptiveImageConfigT<AdaptiveImageConfig>
     {
@@ -13,7 +13,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<winrt::ImageSize> ImageSize;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveImageConfig : AdaptiveImageConfigT<AdaptiveImageConfig, implementation::AdaptiveImageConfig>
     {

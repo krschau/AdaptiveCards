@@ -4,7 +4,7 @@
 
 #include "AdaptiveMediaRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveMediaRenderer : AdaptiveMediaRendererT<AdaptiveMediaRenderer>
     {
@@ -17,7 +17,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveMediaRenderer : AdaptiveMediaRendererT<AdaptiveMediaRenderer, implementation::AdaptiveMediaRenderer>
     {

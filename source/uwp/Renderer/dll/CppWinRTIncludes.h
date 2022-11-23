@@ -53,6 +53,9 @@ namespace winrt
 
     // In order to avoid "namespace not defined" errors we have to define the namespace here too.
     namespace AdaptiveCards::Rendering::Uwp{}
+
+#define XamlRendering Uwp
+
     using namespace ::winrt::AdaptiveCards::Rendering::Uwp;
 
     namespace AdaptiveCards::Rendering::Uwp::implementation{}
@@ -60,6 +63,8 @@ namespace winrt
     {
         using namespace ::winrt::AdaptiveCards::Rendering::Uwp::implementation;
     }
+
+    namespace xaml = winrt::Windows::UI::Xaml;
 
     using Brush = winrt::Windows::UI::Xaml::Media::Brush;
     using FontFamily = winrt::Windows::UI::Xaml::Media::FontFamily;

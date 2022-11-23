@@ -8,13 +8,13 @@
 #include "ActionHelpers.h"
 #include "WholeItemsPanel.h"
 
-using WholeItemsPanelWinRT = winrt::AdaptiveCards::Rendering::Winui3::implementation::WholeItemsPanel;
+using WholeItemsPanelWinRT = winrt::AdaptiveCards::Rendering::XamlRendering::implementation::WholeItemsPanel;
 
-namespace AdaptiveCards::Rendering::Winui3
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     XamlBuilder::XamlBuilder()
     {
-        m_imageLoadTracker = winrt::make_self<::AdaptiveCards::Rendering::Winui3::ImageLoadTracker>();
+        m_imageLoadTracker = winrt::make_self<::AdaptiveCards::Rendering::XamlRendering::ImageLoadTracker>();
         m_imageLoadTracker->AddListener(dynamic_cast<IImageLoadTrackerListener*>(this));
     }
 
@@ -36,7 +36,7 @@ namespace AdaptiveCards::Rendering::Winui3
 
             auto hostConfig = renderContext.HostConfig();
 
-            bool ifSupportsInteractivity = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig);
+            bool ifSupportsInteractivity = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SupportsInteractivity(hostConfig);
 
             auto adaptiveCardConfig = hostConfig.AdaptiveCard();
 
@@ -83,7 +83,7 @@ namespace AdaptiveCards::Rendering::Winui3
 
             winrt::VerticalContentAlignment verticalContentAlignment = adaptiveCard.VerticalContentAlignment();
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetVerticalContentAlignmentToChildren(bodyElementContainer,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetVerticalContentAlignmentToChildren(bodyElementContainer,
                                                                                                 verticalContentAlignment);
 
             auto actions = adaptiveCard.Actions();
@@ -105,13 +105,13 @@ namespace AdaptiveCards::Rendering::Winui3
 
             if (isInShowCard)
             {
-                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
                                                                                              L"Adaptive.ShowCard.Card",
                                                                                              rootAsFrameworkElement);
             }
             else
             {
-                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Card", rootAsFrameworkElement);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Card", rootAsFrameworkElement);
             }
 
             xamlTreeRoot = rootAsFrameworkElement;
@@ -135,7 +135,7 @@ namespace AdaptiveCards::Rendering::Winui3
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailed(renderContext, ex.message());
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailed(renderContext, ex.message());
             return nullptr;
         }
     }
@@ -199,7 +199,7 @@ namespace AdaptiveCards::Rendering::Winui3
 
             if (isBackgroundImageValid)
             {
-                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ApplyBackgroundToRoot(rootElement, backgroundImage, renderContext);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ApplyBackgroundToRoot(rootElement, backgroundImage, renderContext);
             }
 
             auto spacingConfig = hostConfig.Spacing();
@@ -213,11 +213,11 @@ namespace AdaptiveCards::Rendering::Winui3
             bodyElementHostImpl->SetAdaptiveHeight(true);
             winrt::WholeItemsPanel bodyElementHost = *bodyElementHostImpl;
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ApplyMarginToXamlElement(hostConfig, bodyElementHost);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ApplyMarginToXamlElement(hostConfig, bodyElementHost);
 
             winrt::HeightType adaptiveCardHeightType = adaptiveCard.Height();
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(bodyElementHost, rootElement, adaptiveCardHeightType);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(bodyElementHost, rootElement, adaptiveCardHeightType);
             bodyElementContainer = bodyElementHost;
 
             if (xamlBuilder && xamlBuilder->m_fixedDimensions)
@@ -241,7 +241,7 @@ namespace AdaptiveCards::Rendering::Winui3
         }
         catch (winrt::hresult_error& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                                        L"RootElement (visual tree root)",
                                                                                        ex.message());
             return {nullptr, nullptr};
@@ -314,22 +314,22 @@ namespace AdaptiveCards::Rendering::Winui3
             if (newControl)
             {
                 auto separator =
-                    ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AddSeparatorIfNeeded(iElement, element, hostConfig, renderContext, parentPanel);
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AddSeparatorIfNeeded(iElement, element, hostConfig, renderContext, parentPanel);
 
                 // If the renderedElement was an input, render the label and error message
                 if (auto const inputElement = renderedElement.try_as<winrt::IAdaptiveInputElement>())
                 {
-                    newControl = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::HandleLabelAndErrorMessage(inputElement,
+                    newControl = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleLabelAndErrorMessage(inputElement,
                                                                                                           renderContext,
                                                                                                           newControl);
                 }
 
-                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AddRenderedControl(newControl, element, parentPanel, separator, nullptr, childCreatedCallback);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AddRenderedControl(newControl, element, parentPanel, separator, nullptr, childCreatedCallback);
             }
 
             // Revert the ancestorHasFallback value
             renderArgs.AncestorHasFallback(ancestorHasFallback);
         }
-        ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetSeparatorVisibility(parentPanel);
+        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetSeparatorVisibility(parentPanel);
     }
 }

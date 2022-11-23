@@ -6,7 +6,7 @@
 #include "AdaptiveErrorMessageConfig.h"
 #include "AdaptiveInputsConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveInputsConfig : AdaptiveInputsConfigT<AdaptiveInputsConfig>
     {
@@ -17,7 +17,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveInputsConfig : AdaptiveInputsConfigT<AdaptiveInputsConfig, implementation::AdaptiveInputsConfig>
     {

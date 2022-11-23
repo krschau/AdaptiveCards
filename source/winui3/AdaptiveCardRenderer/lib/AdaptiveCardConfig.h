@@ -4,7 +4,7 @@
 
 #include "AdaptiveCardConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveCardConfig : AdaptiveCardConfigT<AdaptiveCardConfig>
     {
@@ -13,7 +13,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<bool> AllowCustomStyle;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveCardConfig : AdaptiveCardConfigT<AdaptiveCardConfig, implementation::AdaptiveCardConfig>
     {

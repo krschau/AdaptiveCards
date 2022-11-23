@@ -4,18 +4,18 @@
 
 #include "AdaptiveExecuteActionRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveExecuteActionRenderer : AdaptiveExecuteActionRendererT<AdaptiveExecuteActionRenderer>
     {
         AdaptiveExecuteActionRenderer() = default;
 
-        Windows::UI::Xaml::UIElement Render(winrt::IAdaptiveActionElement const& action,
+        xaml::UIElement Render(winrt::IAdaptiveActionElement const& action,
                                             winrt::AdaptiveRenderContext const& renderContext,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveExecuteActionRenderer
         : AdaptiveExecuteActionRendererT<AdaptiveExecuteActionRenderer, implementation::AdaptiveExecuteActionRenderer>

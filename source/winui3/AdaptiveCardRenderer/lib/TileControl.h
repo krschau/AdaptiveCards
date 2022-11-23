@@ -5,7 +5,7 @@
 #include "pch.h"
 #include "TileControl.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct DECLSPEC_UUID("0F485063-EF2A-400E-A946-73E00EDFAC83") TileControl : public TileControlT<TileControl, ITypePeek>
     {
@@ -51,7 +51,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct TileControl : TileControlT<TileControl, implementation::TileControl>
     {

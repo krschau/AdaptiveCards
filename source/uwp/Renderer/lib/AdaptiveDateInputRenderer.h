@@ -4,7 +4,7 @@
 
 #include "AdaptiveDateInputRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveDateInputRenderer : AdaptiveDateInputRendererT<AdaptiveDateInputRenderer>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                                                    winrt::AdaptiveRenderArgs const& renderArgs);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveDateInputRenderer : AdaptiveDateInputRendererT<AdaptiveDateInputRenderer, implementation::AdaptiveDateInputRenderer>
     {

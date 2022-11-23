@@ -6,7 +6,7 @@
 #include "AdaptiveFactSetRenderer.g.cpp"
 #include "TextHelpers.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveFactSetRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                      winrt::AdaptiveRenderContext const& renderContext,
@@ -81,11 +81,11 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                     auto spacing = factSetConfig.Spacing();
                     titleTextBlock.Margin({0, 0, (double)spacing, 0});
 
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
                                                                                                  L"Adaptive.Fact.Title",
                                                                                                  titleTextBlock);
 
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext,
                                                                                                  L"Adaptive.Fact.Value",
                                                                                                  valueTextBlock);
 
@@ -97,8 +97,8 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
 
                     // Finally add the column container to the grid, and increment the column count
 
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(titleTextBlock, xamlGrid);
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(valueTextBlock, xamlGrid);
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(titleTextBlock, xamlGrid);
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(valueTextBlock, xamlGrid);
                     ++currentFact;
                     ++validFacts;
                 }
@@ -109,13 +109,13 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                 return nullptr;
             }
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.FactSet", xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.FactSet", xamlGrid);
 
             return xamlGrid;
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

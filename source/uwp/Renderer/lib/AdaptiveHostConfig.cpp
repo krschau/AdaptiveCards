@@ -25,21 +25,21 @@
 #include "AdaptiveTextStylesConfig.h"
 #include "AdaptiveHostConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
-    Uwp::AdaptiveHostConfigParseResult AdaptiveHostConfig::FromJsonString(hstring const& hostConfigJson)
+    XamlRendering::AdaptiveHostConfigParseResult AdaptiveHostConfig::FromJsonString(hstring const& hostConfigJson)
     {
         std::string adaptiveJsonString = HStringToUTF8(hostConfigJson);
         return AdaptiveHostConfig::_FromJsonString(adaptiveJsonString);
     }
 
-    Uwp::AdaptiveHostConfigParseResult AdaptiveHostConfig::FromJson(winrt::JsonObject const& hostConfigJson)
+    XamlRendering::AdaptiveHostConfigParseResult AdaptiveHostConfig::FromJson(winrt::JsonObject const& hostConfigJson)
     {
         std::string adaptiveJsonString = JsonObjectToString(hostConfigJson);
         return AdaptiveHostConfig::_FromJsonString(adaptiveJsonString);
     }
 
-    Uwp::AdaptiveHostConfigParseResult AdaptiveHostConfig::_FromJsonString(std::string const& adaptiveJson)
+    XamlRendering::AdaptiveHostConfigParseResult AdaptiveHostConfig::_FromJsonString(std::string const& adaptiveJson)
     {
         auto sharedHostConfig = ::AdaptiveCards::HostConfig::DeserializeFromString(adaptiveJson);
         auto parseResult = winrt::make<implementation::AdaptiveHostConfig>(sharedHostConfig);

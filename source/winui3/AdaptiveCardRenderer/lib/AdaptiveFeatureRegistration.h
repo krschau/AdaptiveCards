@@ -4,7 +4,7 @@
 
 #include "AdaptiveFeatureRegistration.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct DECLSPEC_UUID("34988ccd-4c0d-4043-b53d-3c1d2868860b") AdaptiveFeatureRegistration
         : AdaptiveFeatureRegistrationT<AdaptiveFeatureRegistration, ITypePeek>
@@ -28,7 +28,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         std::shared_ptr<::AdaptiveCards::FeatureRegistration> m_sharedFeatureRegistration;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveFeatureRegistration
         : AdaptiveFeatureRegistrationT<AdaptiveFeatureRegistration, implementation::AdaptiveFeatureRegistration>

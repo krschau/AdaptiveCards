@@ -5,7 +5,7 @@
 #include "AdaptiveImageSizesConfig.h"
 #include "AdaptiveImageSizesConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveImageSizesConfig::AdaptiveImageSizesConfig(::AdaptiveCards::ImageSizesConfig const& imageSizesConfig)
     {

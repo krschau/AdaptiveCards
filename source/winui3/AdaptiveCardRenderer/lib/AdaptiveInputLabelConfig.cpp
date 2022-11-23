@@ -5,7 +5,7 @@
 #include "AdaptiveInputLabelConfig.h"
 #include "AdaptiveInputLabelConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveInputLabelConfig::AdaptiveInputLabelConfig(::AdaptiveCards::InputLabelConfig const& inputLabelConfig)
     {

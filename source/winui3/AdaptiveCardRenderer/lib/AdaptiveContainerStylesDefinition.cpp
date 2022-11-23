@@ -5,7 +5,7 @@
 #include "AdaptiveContainerStylesDefinition.h"
 #include "AdaptiveContainerStylesDefinition.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveContainerStylesDefinition::AdaptiveContainerStylesDefinition(::AdaptiveCards::ContainerStylesDefinition const& stylesDefinition) :
         Default{winrt::make<implementation::AdaptiveContainerStyleDefinition>(stylesDefinition.defaultPalette)},

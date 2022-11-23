@@ -3,7 +3,7 @@
 #include "pch.h"
 #include "ImageLoadTracker.h"
 
-namespace AdaptiveCards::Rendering::Uwp
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     ImageLoadTracker::~ImageLoadTracker()
     {
@@ -53,7 +53,7 @@ namespace AdaptiveCards::Rendering::Uwp
         m_eventRevokers.clear();
     }
 
-    void ImageLoadTracker::AddListener(::AdaptiveCards::Rendering::Uwp::IImageLoadTrackerListener* listener)
+    void ImageLoadTracker::AddListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener)
     {
         if (m_listeners.find(listener) == m_listeners.end())
         {
@@ -61,7 +61,7 @@ namespace AdaptiveCards::Rendering::Uwp
         }
     }
 
-    void ImageLoadTracker::RemoveListener(::AdaptiveCards::Rendering::Uwp::IImageLoadTrackerListener* listener)
+    void ImageLoadTracker::RemoveListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener)
     {
         if (m_listeners.find(listener) != m_listeners.end())
         {

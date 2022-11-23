@@ -5,7 +5,7 @@
 #include "AdaptiveTableRenderer.h"
 #include "AdaptiveTableRenderer.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::FrameworkElement AdaptiveTableRenderer::RenderCell(winrt::AdaptiveTableCell const& cell,
                                                               winrt::AdaptiveRenderContext const& renderContext,
@@ -173,7 +173,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             winrt::Grid::SetColumn(cellFrameworkElement, rowNumber);
 
             // Add the cell to the panel
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(cellFrameworkElement, xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(cellFrameworkElement, xamlGrid);
             columnNumber++;
         }
 
@@ -214,7 +214,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             for (auto column : columns)
             {
                 winrt::ColumnDefinition xamlColumnDefinition{};
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::HandleTableColumnWidth(column, xamlColumnDefinition);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleTableColumnWidth(column, xamlColumnDefinition);
                 xamlColumnDefinitions.Append(xamlColumnDefinition);
             }
 
@@ -239,9 +239,9 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
-                                                                                       cardElement.ElementTypeString(),
-                                                                                       ex.message());
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+                                                                                                 cardElement.ElementTypeString(),
+                                                                                                 ex.message());
             return nullptr;
         }
     }

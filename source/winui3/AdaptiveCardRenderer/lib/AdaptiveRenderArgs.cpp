@@ -5,12 +5,12 @@
 #include "AdaptiveRenderArgs.h"
 #include "AdaptiveRenderArgs.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     // This constructor is kept so all elements keep working as expected
     AdaptiveRenderArgs::AdaptiveRenderArgs(winrt::ContainerStyle const& containerStyle,
                                            winrt::IInspectable const& parentElement,
-                                           Winui3::AdaptiveRenderArgs const& renderArgs) :
+                                           XamlRendering::AdaptiveRenderArgs const& renderArgs) :
         ContainerStyle{containerStyle},
         ParentElement{parentElement}
     {
@@ -24,7 +24,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     AdaptiveRenderArgs::AdaptiveRenderArgs(winrt::ContainerStyle const& containerStyle,
                                            winrt::IInspectable const& parentElement,
                                            winrt::AdaptiveCard const& parentCard,
-                                           Winui3::AdaptiveRenderArgs const& renderArgs) :
+                                           XamlRendering::AdaptiveRenderArgs const& renderArgs) :
         ContainerStyle{containerStyle},
         ParentElement{parentElement}, ParentCard{parentCard}
     {

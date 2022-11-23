@@ -6,7 +6,7 @@
 #include "AdaptiveImageSetRenderer.g.cpp"
 #include "AdaptiveRenderArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveImageSetRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                       winrt::AdaptiveRenderContext const& renderContext,
@@ -44,7 +44,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
                     if (const auto uiImageAsFrameworkElement = uiImage.try_as<winrt::FrameworkElement>())
                     {
                         uiImageAsFrameworkElement.MaxHeight(imageSetConfig.MaxImageHeight());
-                        ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(uiImageAsFrameworkElement, xamlGrid);
+                        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(uiImageAsFrameworkElement, xamlGrid);
                     }
                 }
             }
@@ -54,12 +54,12 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
                 return nullptr;
             }
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ImageSet", xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ImageSet", xamlGrid);
             return xamlGrid;
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

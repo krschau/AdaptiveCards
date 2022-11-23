@@ -4,7 +4,7 @@
 
 #include "AdaptiveFactSetConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveFactSetConfig : AdaptiveFactSetConfigT<AdaptiveFactSetConfig>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<uint32_t> Spacing;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveFactSetConfig : AdaptiveFactSetConfigT<AdaptiveFactSetConfig, implementation::AdaptiveFactSetConfig>
     {

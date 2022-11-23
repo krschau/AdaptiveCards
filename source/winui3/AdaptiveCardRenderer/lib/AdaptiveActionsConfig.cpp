@@ -5,7 +5,7 @@
 #include "AdaptiveShowCardActionConfig.h"
 #include "AdaptiveActionsConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveActionsConfig::AdaptiveActionsConfig(::AdaptiveCards::ActionsConfig const& actionsConfig) :
         ShowCard{winrt::make<winrt::implementation::AdaptiveShowCardActionConfig>(actionsConfig.showCard)}

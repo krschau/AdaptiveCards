@@ -4,7 +4,7 @@
 
 #include "AdaptiveFontWeightsConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveFontWeightsConfig : AdaptiveFontWeightsConfigT<AdaptiveFontWeightsConfig>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<uint16_t> Bolder;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveFontWeightsConfig : AdaptiveFontWeightsConfigT<AdaptiveFontWeightsConfig, implementation::AdaptiveFontWeightsConfig>
     {

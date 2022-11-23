@@ -5,7 +5,7 @@
 #include "AdaptiveImageConfig.h"
 #include "AdaptiveImageConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveImageConfig::AdaptiveImageConfig(::AdaptiveCards::ImageConfig const& sharedImageConfig)
     {

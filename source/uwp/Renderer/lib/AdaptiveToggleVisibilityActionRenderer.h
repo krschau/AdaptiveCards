@@ -4,7 +4,7 @@
 
 #include "AdaptiveToggleVisibilityActionRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveToggleVisibilityActionRenderer : AdaptiveToggleVisibilityActionRendererT<AdaptiveToggleVisibilityActionRenderer>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                                                    winrt::AdaptiveRenderArgs const& renderArgs);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveToggleVisibilityActionRenderer
         : AdaptiveToggleVisibilityActionRendererT<AdaptiveToggleVisibilityActionRenderer, implementation::AdaptiveToggleVisibilityActionRenderer>

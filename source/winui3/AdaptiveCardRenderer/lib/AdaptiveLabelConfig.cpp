@@ -5,7 +5,7 @@
 #include "AdaptiveLabelConfig.h"
 #include "AdaptiveLabelConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveLabelConfig::AdaptiveLabelConfig(::AdaptiveCards::LabelConfig const& labelConfig) :
         InputSpacing{static_cast<winrt::Spacing>(labelConfig.inputSpacing)},

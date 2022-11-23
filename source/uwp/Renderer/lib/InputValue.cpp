@@ -5,7 +5,7 @@
 #include "json/json.h"
 #include "XamlHelpers.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp
+namespace winrt::AdaptiveCards::Rendering::XamlRendering
 {
     InputValue::InputValue(winrt::IAdaptiveInputElement const& adaptiveInputElement,
                            winrt::UIElement const& uiInputElement,
@@ -309,7 +309,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp
 
     winrt::hstring ToggleInputValue::CurrentValue()
     {
-        auto checkedValue = ::AdaptiveCards::Rendering::Uwp::XamlHelpers::GetToggleValue(m_checkBoxElement);
+        auto checkedValue = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(m_checkBoxElement);
 
         if (checkedValue)
         {
@@ -332,7 +332,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp
         if (isRequired)
         {
             // MeetsRequirement is true if toggle is checked
-            meetsRequirement = ::AdaptiveCards::Rendering::Uwp::XamlHelpers::GetToggleValue(m_checkBoxElement);
+            meetsRequirement = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(m_checkBoxElement);
         }
         return meetsRequirement;
     }
@@ -383,7 +383,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp
             std::string multiSelectValues;
             for (auto element : panelChildren)
             {
-                if (::AdaptiveCards::Rendering::Uwp::XamlHelpers::GetToggleValue(element))
+                if (::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(element))
                 {
                     multiSelectValues += GetChoiceValue(m_adaptiveChoiceSetInput, index) + ",";
                 }
@@ -402,7 +402,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp
             int selectedIndex = -1;
             for (auto element : panelChildren)
             {
-                if (::AdaptiveCards::Rendering::Uwp::XamlHelpers::GetToggleValue(element))
+                if (::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(element))
                 {
                     selectedIndex = index;
                     break;

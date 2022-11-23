@@ -6,7 +6,7 @@
 #include "AdaptiveImageSetRenderer.g.cpp"
 #include "AdaptiveRenderArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveImageSetRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                       winrt::AdaptiveRenderContext const& renderContext,
@@ -44,7 +44,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                     if (const auto uiImageAsFrameworkElement = uiImage.try_as<winrt::FrameworkElement>())
                     {
                         uiImageAsFrameworkElement.MaxHeight(imageSetConfig.MaxImageHeight());
-                        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(uiImageAsFrameworkElement, xamlGrid);
+                        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(uiImageAsFrameworkElement, xamlGrid);
                     }
                 }
             }
@@ -54,12 +54,12 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                 return nullptr;
             }
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ImageSet", xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ImageSet", xamlGrid);
             return xamlGrid;
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

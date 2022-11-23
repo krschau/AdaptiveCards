@@ -6,8 +6,8 @@
 #include "AdaptiveChoiceSetInputRenderer.g.cpp"
 #include "ParseUtil.h"
 
-using namespace AdaptiveCards::Rendering::Uwp::XamlHelpers;
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+using namespace AdaptiveCards::Rendering::XamlRendering::XamlHelpers;
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveChoiceSetInputRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                             winrt::AdaptiveRenderContext const& renderContext,
@@ -47,7 +47,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                                        cardElement.ElementTypeString(),
                                                                                        ex.message());
             return nullptr;
@@ -170,6 +170,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                     radioButton.IsChecked(IsChoiceSelected(values, input));
                 }
 
+#ifndef USE_WINUI3
                 radioButton.PreviewKeyDown(
                     [stackPanel, radioButton](winrt::IInspectable const& /*sender*/, winrt::KeyRoutedEventArgs const& args) -> void
                     {
@@ -190,6 +191,9 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                             }
                         }
                     });
+#else
+// TODO
+#endif
 
                 choiceItem = radioButton;
             }

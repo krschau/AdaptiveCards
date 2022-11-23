@@ -8,9 +8,13 @@
 #include "LinkButton.h"
 #include "AdaptiveHostConfig.h"
 
-using namespace AdaptiveCards::Rendering::Uwp::XamlHelpers;
+#ifdef USE_WINUI3
+#include <winrt/Microsoft.UI.Input.h>
+#endif
 
-namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
+using namespace AdaptiveCards::Rendering::XamlRendering::XamlHelpers;
+
+namespace AdaptiveCards::Rendering::XamlRendering::ActionHelpers
 {
     winrt::Thickness GetButtonMargin(winrt::AdaptiveActionsConfig const& actionsConfig)
     {
@@ -332,10 +336,21 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
     {
         if (args.Key() == winrt::VirtualKey::Enter)
         {
+#ifndef USE_WINUI3
             auto coreWindow = winrt::CoreWindow::GetForCurrentThread();
 
-            if ((coreWindow.GetKeyState(winrt::VirtualKey::Shift) == winrt::CoreVirtualKeyStates::None) &&
-                (coreWindow.GetKeyState(winrt::VirtualKey::Control) == winrt::CoreVirtualKeyStates::None))
+            bool isShiftUp = coreWindow.GetKeyState(winrt::VirtualKey::Shift) == winrt::CoreVirtualKeyStates::None;
+            bool isControlUp = coreWindow.GetKeyState(winrt::VirtualKey::Control) == winrt::CoreVirtualKeyStates::None;
+
+#else
+            auto const& shiftKeyState =
+                winrt::Microsoft::UI::Input::InputKeyboardSource::GetKeyStateForCurrentThread(winrt::VirtualKey::Shift);
+            bool isShiftUp = shiftKeyState == winrt::Windows::UI::Core::CoreVirtualKeyStates::None;
+            auto const& controlKeyState =
+                winrt::Microsoft::UI::Input::InputKeyboardSource::GetKeyStateForCurrentThread(winrt::VirtualKey::Control);
+            bool isControlUp = controlKeyState == winrt::Windows::UI::Core::CoreVirtualKeyStates::None;
+#endif
+            if (isShiftUp && isControlUp)
             {
                 actionInvoker.SendActionEvent(inlineAction);
                 args.Handled(true);
@@ -646,7 +661,11 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
                                            winrt::AdaptiveRenderArgs const& renderArgs)
     {
         // Get the flyout items vector
+#ifndef USE_WINUI3
         auto buttonWithFlyout = overflowButton.as<winrt::IButtonWithFlyout>();
+#else
+        auto buttonWithFlyout = overflowButton.as<winrt::Button>();
+#endif
         auto menuFlyout = buttonWithFlyout.Flyout().as<winrt::MenuFlyout>();
         auto flyoutItems = menuFlyout.Items();
 
@@ -691,7 +710,7 @@ namespace AdaptiveCards::Rendering::Uwp::ActionHelpers
         auto showCardActionConfig = actionsConfig.ShowCard();
         auto showCardActionMode = showCardActionConfig.ActionMode();
         // ActionMode enum exists both in Rendering in ObjectModel namespaces. When the time permits, fix it.
-        if (showCardActionMode == winrt::AdaptiveCards::Rendering::Uwp::ActionMode::Inline)
+        if (showCardActionMode == winrt::AdaptiveCards::Rendering::XamlRendering::ActionMode::Inline)
         {
             // Get the card to be shown
             auto actionAsShowCardAction = action.as<winrt::AdaptiveShowCardAction>();

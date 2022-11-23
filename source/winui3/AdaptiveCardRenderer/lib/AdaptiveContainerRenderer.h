@@ -5,18 +5,18 @@
 #include "AdaptiveContainerRenderer.g.h"
 #include "Container.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveContainerRenderer : AdaptiveContainerRendererT<AdaptiveContainerRenderer>
     {
         AdaptiveContainerRenderer() = default;
 
-        Microsoft::UI::Xaml::UIElement Render(winrt::IAdaptiveCardElement const& element,
+        xaml::UIElement Render(winrt::IAdaptiveCardElement const& element,
                                             winrt::AdaptiveRenderContext const& context,
                                             winrt::AdaptiveRenderArgs const& renderArgs);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveContainerRenderer : AdaptiveContainerRendererT<AdaptiveContainerRenderer, implementation::AdaptiveContainerRenderer>
     {

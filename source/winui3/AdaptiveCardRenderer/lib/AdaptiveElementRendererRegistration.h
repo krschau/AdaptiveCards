@@ -5,7 +5,7 @@
 #include "Util.h"
 #include "AdaptiveElementREndererRegistration.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveElementRendererRegistration : AdaptiveElementRendererRegistrationT<AdaptiveElementRendererRegistration>
     {
@@ -19,7 +19,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
             m_registration[type] = renderer;
         }
 
-        Winui3::IAdaptiveElementRenderer Get(hstring const& type)
+        XamlRendering::IAdaptiveElementRenderer Get(hstring const& type)
         {
             auto it = m_registration.find(type);
             if (it != m_registration.end())

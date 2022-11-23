@@ -4,7 +4,7 @@
 
 #include "AdaptiveTimeInputRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveTimeInputRenderer : AdaptiveTimeInputRendererT<AdaptiveTimeInputRenderer>
     {
@@ -16,7 +16,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveTimeInputRenderer : AdaptiveTimeInputRendererT<AdaptiveTimeInputRenderer, implementation::AdaptiveTimeInputRenderer>
     {

@@ -5,18 +5,18 @@
 #include "ActionSet.h"
 #include "AdaptiveActionSetRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveActionSetRenderer : AdaptiveActionSetRendererT<AdaptiveActionSetRenderer>
     {
         AdaptiveActionSetRenderer() = default;
 
         winrt::UIElement Render(winrt::IAdaptiveCardElement const& cardElement,
-                                                   Winui3::AdaptiveRenderContext const& renderContext,
-                                                   Winui3::AdaptiveRenderArgs const& renderArgs);
+                                                   XamlRendering::AdaptiveRenderContext const& renderContext,
+                                                   XamlRendering::AdaptiveRenderArgs const& renderArgs);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveActionSetRenderer : AdaptiveActionSetRendererT<AdaptiveActionSetRenderer, implementation::AdaptiveActionSetRenderer>
     {

@@ -4,7 +4,7 @@
 
 #include "AdaptiveShowCardActionRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveShowCardActionRenderer : AdaptiveShowCardActionRendererT<AdaptiveShowCardActionRenderer>
     {
@@ -20,7 +20,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveShowCardActionRenderer
         : AdaptiveShowCardActionRendererT<AdaptiveShowCardActionRenderer, implementation::AdaptiveShowCardActionRenderer>

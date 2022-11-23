@@ -3,6 +3,6 @@
 #include "pch.h"
 #include "AdaptiveMediaEventArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
 }

@@ -4,6 +4,6 @@
 #include "AdaptiveElementRendererRegistration.h"
 #include "AdaptiveElementRendererRegistration.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
 }

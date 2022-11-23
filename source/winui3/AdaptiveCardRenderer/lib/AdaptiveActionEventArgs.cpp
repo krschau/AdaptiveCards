@@ -5,6 +5,6 @@
 #include "AdaptiveActionEventArgs.h"
 #include "AdaptiveActionEventArgs.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
 }

@@ -6,7 +6,7 @@
 #include "AdaptiveHighlightColorConfig.h"
 #include "AdaptiveColorConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveColorConfig::AdaptiveColorConfig(::AdaptiveCards::ColorConfig colorConfig)
     {

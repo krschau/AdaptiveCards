@@ -5,7 +5,7 @@
 #include "AdaptiveHostConfigParseResult.h"
 #include "AdaptiveHostConfigParseResult.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveHostConfigParseResult::AdaptiveHostConfigParseResult(winrt::AdaptiveHostConfig const& value) :
         Errors{winrt::single_threaded_vector<winrt::AdaptiveError>()}, HostConfig{value}

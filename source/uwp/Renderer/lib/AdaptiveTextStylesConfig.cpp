@@ -6,7 +6,7 @@
 #include "AdaptiveTextStylesConfig.h"
 #include "AdaptiveTextStylesConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveTextStylesConfig::AdaptiveTextStylesConfig(::AdaptiveCards::TextStylesConfig const& textStylesConfig) :
         Heading{winrt::make<implementation::AdaptiveTextStyleConfig>(textStylesConfig.heading)},

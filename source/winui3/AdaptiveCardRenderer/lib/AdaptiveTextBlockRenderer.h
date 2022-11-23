@@ -4,7 +4,7 @@
 
 #include "AdaptiveTextBlockRenderer.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveTextBlockRenderer : AdaptiveTextBlockRendererT<AdaptiveTextBlockRenderer>
     {
@@ -19,7 +19,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         winrt::AutomationHeadingLevel GetHeadingLevelFromContext(winrt::AdaptiveRenderContext const& renderContext);
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveTextBlockRenderer : AdaptiveTextBlockRendererT<AdaptiveTextBlockRenderer, implementation::AdaptiveTextBlockRenderer>
     {

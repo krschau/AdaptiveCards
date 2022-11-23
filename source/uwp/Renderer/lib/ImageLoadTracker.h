@@ -4,7 +4,7 @@
 
 #include "IImageLoadTrackerListener.h"
 
-namespace AdaptiveCards::Rendering::Uwp
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     struct TrackedImageDetails : winrt::implements<TrackedImageDetails, winrt::IInspectable>
     {
@@ -20,8 +20,8 @@ namespace AdaptiveCards::Rendering::Uwp
         void MarkFailedLoadBitmapImage(winrt::BitmapImage const& bitmapImage);
 
         void AbandonOutstandingImages();
-        void AddListener(::AdaptiveCards::Rendering::Uwp::IImageLoadTrackerListener* listener);
-        void RemoveListener(::AdaptiveCards::Rendering::Uwp::IImageLoadTrackerListener* listener);
+        void AddListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener);
+        void RemoveListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener);
         int GetTotalImagesTracked();
 
     private:
@@ -30,7 +30,7 @@ namespace AdaptiveCards::Rendering::Uwp
         int m_totalImageCount = 0;
         bool m_hasFailure = false;
         std::unordered_map<winrt::IInspectable, winrt::com_ptr<TrackedImageDetails>> m_eventRevokers;
-        std::set<::AdaptiveCards::Rendering::Uwp::IImageLoadTrackerListener*> m_listeners;
+        std::set<::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener*> m_listeners;
 
         void TrackedImage_ImageLoaded(winrt::IInspectable const& sender,
                                       winrt::RoutedEventArgs const& eventArgs);

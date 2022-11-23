@@ -8,9 +8,9 @@
 #include "ActionHelpers.h"
 #include "MediaHelpers.h"
 
-using namespace AdaptiveCards::Rendering::Winui3::MediaHelpers;
+using namespace AdaptiveCards::Rendering::XamlRendering::MediaHelpers;
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveMediaRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                    winrt::AdaptiveRenderContext const& renderContext,
@@ -25,7 +25,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
             auto posterImage = GetMediaPosterAsImage(renderContext, renderArgs, adaptiveMedia);
 
             // If the host doesn't support interactivity we're done here, just return the poster image
-            if (!::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig))
+            if (!::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SupportsInteractivity(hostConfig))
             {
                 renderContext.AddWarning(winrt::WarningStatusCode::InteractivityNotSupported,
                                          L"Media was present in card, but interactivity is not supported");
@@ -38,13 +38,13 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 
             winrt::hstring altText = adaptiveMedia.AltText();
 
-            auto touchTargetUIElement = ::AdaptiveCards::Rendering::Winui3::ActionHelpers::WrapInTouchTarget(
+            auto touchTargetUIElement = ::AdaptiveCards::Rendering::XamlRendering::ActionHelpers::WrapInTouchTarget(
                 cardElement, posterContainer, nullptr, renderContext, true, L"Adaptive.SelectAction", altText, false);
 
             // Create a panel to hold the poster and the media element
             winrt::StackPanel mediaStackPanel{};
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(touchTargetUIElement, mediaStackPanel);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(touchTargetUIElement, mediaStackPanel);
 
             // Check if this host allows inline playback
             auto mediaConfig = hostConfig.Media();
@@ -55,12 +55,20 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
 
             winrt::hstring mimeType{};
             winrt::Uri mediaSourceUrl{nullptr};
+#ifndef USE_WINUI3
+            winrt::MediaElement mediaElement{nullptr};
+#else
             winrt::MediaPlayerElement mediaElement{nullptr};
+#endif
 
             if (allowInlinePlayback)
             {
                 // Create a media element and set it's source
+#ifndef USE_WINUI3
+                mediaElement = winrt::MediaElement{};
+#else
                 mediaElement = winrt::MediaPlayerElement{};
+#endif
 
                 std::tie(mediaSourceUrl, mimeType) = GetMediaSource(hostConfig, adaptiveMedia);
 
@@ -87,7 +95,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
                 // Make the media element collapsed until the user clicks
                 mediaElement.Visibility(winrt::Visibility::Collapsed);
 
-                ::AdaptiveCards::Rendering::Winui3::XamlHelpers::AppendXamlElementToPanel(mediaElement, mediaStackPanel);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(mediaElement, mediaStackPanel);
             }
 
             auto touchTargetAsButtonBase = touchTargetUIElement.as<winrt::ButtonBase>();
@@ -106,7 +114,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                                        cardElement.ElementTypeString(),
                                                                                        ex.message());
             return nullptr;

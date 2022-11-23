@@ -5,7 +5,7 @@
 #include "AdaptiveInputLabelConfig.h"
 #include "AdaptiveLabelConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveLabelConfig : AdaptiveLabelConfigT<AdaptiveLabelConfig>
     {
@@ -16,7 +16,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<winrt::AdaptiveInputLabelConfig> OptionalInputs;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveLabelConfig : AdaptiveLabelConfigT<AdaptiveLabelConfig, implementation::AdaptiveLabelConfig>
     {

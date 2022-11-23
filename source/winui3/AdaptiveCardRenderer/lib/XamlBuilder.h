@@ -9,7 +9,7 @@
 #include "RenderedAdaptiveCard.h"
 #include "AdaptiveRenderContext.h"
 
-namespace AdaptiveCards::Rendering::Winui3
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     struct XamlBuilder : winrt::implements<XamlBuilder, winrt::IInspectable, IImageLoadTrackerListener>
     {
@@ -27,8 +27,8 @@ namespace AdaptiveCards::Rendering::Winui3
                                       winrt::ContainerStyle defaultContainerStyle =
                                           winrt::ContainerStyle::Default);
 
-        void AddListener(::AdaptiveCards::Rendering::Winui3::IXamlBuilderListener* listener);
-        void RemoveListener(::AdaptiveCards::Rendering::Winui3::IXamlBuilderListener* listener);
+        void AddListener(::AdaptiveCards::Rendering::XamlRendering::IXamlBuilderListener* listener);
+        void RemoveListener(::AdaptiveCards::Rendering::XamlRendering::IXamlBuilderListener* listener);
         void SetFixedDimensions(uint32_t width, uint32_t height) noexcept;
         void SetEnableXamlImageHandling(bool enableXamlImageHandling) noexcept;
 

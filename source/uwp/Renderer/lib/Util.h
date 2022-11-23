@@ -3,7 +3,10 @@
 #pragma once
 #include <string>
 
+#ifndef USE_WINUI3
 #include "AdaptiveCards.Rendering.Uwp.h"
+#endif
+
 #include "InputValue.h"
 #include <BaseCardElement.h>
 #include <BaseActionElement.h>
@@ -234,7 +237,7 @@ template<typename T> inline T GetValueFromRef(winrt::IReference<T> const& ref, T
     return defaultValue;
 }
 
-namespace AdaptiveCards::Rendering::Uwp
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     struct XamlBuilder;
 

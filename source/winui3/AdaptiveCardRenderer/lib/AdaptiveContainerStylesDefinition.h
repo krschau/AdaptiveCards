@@ -4,7 +4,7 @@
 
 #include "AdaptiveContainerStylesDefinition.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveContainerStylesDefinition : AdaptiveContainerStylesDefinitionT<AdaptiveContainerStylesDefinition>
     {
@@ -18,7 +18,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<winrt::AdaptiveContainerStyleDefinition> Accent;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveContainerStylesDefinition
         : AdaptiveContainerStylesDefinitionT<AdaptiveContainerStylesDefinition, implementation::AdaptiveContainerStylesDefinition>

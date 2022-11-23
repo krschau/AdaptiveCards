@@ -5,7 +5,7 @@
 #include "AdaptiveFontWeightsConfig.h"
 #include "AdaptiveFontWeightsConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveFontWeightsConfig::AdaptiveFontWeightsConfig(::AdaptiveCards::FontWeightsConfig const& fontWeightsConfig)
     {

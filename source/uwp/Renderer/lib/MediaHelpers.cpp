@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 #include "pch.h"
 #include "AdaptiveCardGetResourceStreamArgs.h"
+#include "MediaHelpers.h"
 
 const double c_playIconSize = 30;
 const double c_playIconCornerRadius = 5;
@@ -9,7 +10,7 @@ const double c_playIconOpacity = .5;
 const winrt::hstring supportedMimeTypes[] = {L"video/mp4", L"audio/mp4", L"audio/aac", L"audio/mpeg"};
 const std::unordered_set<winrt::hstring> supportedCaptionTypes = {L"vtt", L"srt"};
 
-namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
+namespace AdaptiveCards::Rendering::XamlRendering::MediaHelpers
 {
     winrt::Image GetMediaPosterAsImage(winrt::AdaptiveRenderContext const& renderContext,
                                        winrt::AdaptiveRenderArgs const& renderArgs,
@@ -79,11 +80,11 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
         playIcon.Foreground(darkBrush);
 
-        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(rectangle, posterPanel);
+        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(rectangle, posterPanel);
         winrt::RelativePanel::SetAlignVerticalCenterWithPanel(rectangle, true);
         winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(rectangle, true);
 
-        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(playIcon, posterPanel);
+        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(playIcon, posterPanel);
         winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(playIcon, true);
         winrt::RelativePanel::SetAlignVerticalCenterWithPanel(playIcon, true);
     }
@@ -106,7 +107,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
             playIconAsFrameworkElement.Height(c_playIconSize);
 
             // Add it to the panel and center it
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(playIconUIElement, posterPanel);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(playIconUIElement, posterPanel);
             winrt::RelativePanel::SetAlignHorizontalCenterWithPanel(playIconUIElement, true);
             winrt::RelativePanel::SetAlignVerticalCenterWithPanel(playIconUIElement, true);
         }
@@ -140,7 +141,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
         if (posterImage)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(posterImage, posterRelativePanel);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(posterImage, posterRelativePanel);
         }
         AddPlayIcon(posterRelativePanel, renderContext, renderArgs);
 
@@ -179,7 +180,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
         return {mediaSourceUrl, mimeType};
     }
 
-    void SetMediaSourceHelper(winrt::MediaElement const& mediaElement,
+    void SetMediaSourceHelper(winrt::MediaElementType const& mediaElement,
                               winrt::AdaptiveMedia const& adaptiveMedia,
                               winrt::AdaptiveRenderContext const& renderContext,
                               winrt::MediaSource const& mediaSrc)
@@ -230,12 +231,16 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
             {
                 playbackItem.TimedMetadataTracks().SetPresentationMode(0, winrt::TimedMetadataTrackPresentationMode::PlatformPresented);
             });
+#ifndef USE_WINUI3
         mediaElement.SetPlaybackSource(playbackItem);
+#else
+        mediaElement.Source(playbackItem);
+#endif
     }
 
     void HandleMediaResourceResolverCompleted(winrt::IAsyncOperation<winrt::IRandomAccessStream> const& operation,
                                               winrt::AsyncStatus status,
-                                              winrt::MediaElement const& mediaElement,
+                                              winrt::MediaElementType const& mediaElement,
                                               winrt::hstring const& mimeType,
                                               winrt::AdaptiveMedia const& adaptiveMedia,
                                               winrt::AdaptiveRenderContext const& renderContext)
@@ -253,7 +258,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
     void HandleMediaClick(winrt::AdaptiveRenderContext const& renderContext,
                           winrt::AdaptiveMedia const& adaptiveMedia,
-                          winrt::MediaElement const& mediaElement,
+                          winrt::MediaElementType const& mediaElement,
                           winrt::UIElement const& posterContainer,
                           winrt::Uri const& mediaSourceUrl,
                           winrt::hstring const& mimeType,
@@ -287,6 +292,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
                     { return HandleMediaResourceResolverCompleted(operation, status, mediaElement, mimeType, adaptiveMedia, renderContext); });
             }
 
+#ifndef USE_WINUI3
             mediaElement.MediaOpened(
                 [](winrt::IInspectable const& sender, winrt::RoutedEventArgs const& /*args*/) -> void
                 {
@@ -295,6 +301,17 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
                         mediaElement.Play();
                     }
                 });
+#else
+            mediaElement.MediaPlayer().MediaOpened(
+                [](winrt::IInspectable const& sender, winrt::IInspectable const&) -> void
+                {
+                    if (const auto mediaElement = sender.try_as<winrt::MediaPlayerElement>())
+                    {
+                        mediaElement.MediaPlayer().Play();
+                    }
+                });
+#endif
+
         }
         else
         {

@@ -6,7 +6,7 @@
 #include "AdaptiveFactSetConfig.g.cpp"
 #include "AdaptiveFactSetTextConfig.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveFactSetConfig::AdaptiveFactSetConfig(::AdaptiveCards::FactSetConfig const& factSetConfig) :
         Title{winrt::make<implementation::AdaptiveFactSetTextConfig>(factSetConfig.title)},

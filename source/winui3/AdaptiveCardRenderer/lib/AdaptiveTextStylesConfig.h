@@ -4,7 +4,7 @@
 
 #include "AdaptiveTextStylesConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveTextStylesConfig : AdaptiveTextStylesConfigT<AdaptiveTextStylesConfig>
     {
@@ -14,7 +14,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<winrt::AdaptiveTextStyleConfig> ColumnHeader;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveTextStylesConfig : AdaptiveTextStylesConfigT<AdaptiveTextStylesConfig, implementation::AdaptiveTextStylesConfig>
     {

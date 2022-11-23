@@ -4,7 +4,7 @@
 #include "AdaptiveActionRendererRegistration.h"
 #include "AdaptiveActionRendererRegistration.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     void AdaptiveActionRendererRegistration::Set(winrt::hstring const& type, winrt::IAdaptiveActionRenderer const& renderer)
     {

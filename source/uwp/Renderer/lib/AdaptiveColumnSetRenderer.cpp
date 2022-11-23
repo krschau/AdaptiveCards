@@ -8,7 +8,7 @@
 #include "ActionHelpers.h"
 #include "AdaptiveRenderArgs.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveColumnSetRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                        winrt::AdaptiveRenderContext const& renderContext,
@@ -25,7 +25,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             columnSetBorder.Child(gridContainer);
 
             winrt::ContainerStyle containerStyle =
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::HandleStylingAndPadding(adaptiveColumnSet, columnSetBorder, renderContext, renderArgs);
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleStylingAndPadding(adaptiveColumnSet, columnSetBorder, renderContext, renderArgs);
 
             auto newRenderArgs = winrt::make<winrt::implementation::AdaptiveRenderArgs>(containerStyle, renderArgs.ParentElement(), renderArgs);
 
@@ -69,7 +69,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                     }
                     // We try to perform callback in case column renderer threw a E_PERFROM_CALLBACK
                     std::tie(xamlColumn, std::ignore) =
-                        ::AdaptiveCards::Rendering::Uwp::XamlHelpers::RenderFallback(column, renderContext, newRenderArgs);
+                        ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::RenderFallback(column, renderContext, newRenderArgs);
                 }
                 newRenderArgs.AncestorHasFallback(ancestorHasFallback);
 
@@ -81,26 +81,26 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                     if (currentColumn > 0)
                     {
                         // Add Separator to the columnSet
-                        auto needsSeparator = ::AdaptiveCards::Rendering::Uwp::XamlHelpers::NeedsSeparator(column);
+                        auto needsSeparator = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::NeedsSeparator(column);
 
                         if (needsSeparator)
                         {
                             auto separatorParams =
-                                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::GetSeparatorParameters(column, hostConfig);
+                                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetSeparatorParameters(column, hostConfig);
 
                             // Create a new ColumnDefinition for the separator
                             winrt::ColumnDefinition separatorColumnDefinition{};
                             separatorColumnDefinition.Width({1.0, winrt::GridUnitType::Auto});
                             columnDefinitions.Append(separatorColumnDefinition);
 
-                            separator = ::AdaptiveCards::Rendering::Uwp::XamlHelpers::CreateSeparator(
+                            separator = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::CreateSeparator(
                                 renderContext, separatorParams.spacing, separatorParams.thickness, separatorParams.color, false);
 
                             if (const auto separatorAsFrameworkElement = separator.try_as<winrt::FrameworkElement>())
                             {
                                 winrt::Grid::SetColumn(separatorAsFrameworkElement, currentColumn++);
                             }
-                            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(separator, xamlGrid);
+                            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(separator, xamlGrid);
                         }
                     }
 
@@ -109,7 +109,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
 
                     auto isVisible = column.IsVisible();
 
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::HandleColumnWidth(column, isVisible, columnDefinition);
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleColumnWidth(column, isVisible, columnDefinition);
 
                     columnDefinitions.Append(columnDefinition);
 
@@ -119,14 +119,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                         winrt::Grid::SetColumn(columnAsFrameworkElement, currentColumn++);
                     }
 
-                    ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AddRenderedControl(
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AddRenderedControl(
                         xamlColumn, column, xamlGrid, separator, columnDefinition, [](winrt::UIElement const&) {});
                 }
             }
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetSeparatorVisibility(xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetSeparatorVisibility(xamlGrid);
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ColumnSet", xamlGrid);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.ColumnSet", xamlGrid);
             xamlGrid.VerticalAlignment(winrt::VerticalAlignment::Stretch);
 
             auto selectAction = adaptiveColumnSet.SelectAction();
@@ -138,14 +138,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                 gridContainer.MinHeight(columnSetMinHeight);
             }
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::AppendXamlElementToPanel(xamlGrid, gridContainer, columnSetHeightType);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::AppendXamlElementToPanel(xamlGrid, gridContainer, columnSetHeightType);
 
-            return ::AdaptiveCards::Rendering::Uwp::ActionHelpers::HandleSelectAction(
+            return ::AdaptiveCards::Rendering::XamlRendering::ActionHelpers::HandleSelectAction(
                 cardElement,
                 selectAction,
                 renderContext,
                 columnSetBorder,
-                ::AdaptiveCards::Rendering::Uwp::XamlHelpers::SupportsInteractivity(hostConfig),
+                ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SupportsInteractivity(hostConfig),
                 true);
         }
         catch (winrt::hresult_error const& ex)
@@ -156,7 +156,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
                 throw ex;
             }
 
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

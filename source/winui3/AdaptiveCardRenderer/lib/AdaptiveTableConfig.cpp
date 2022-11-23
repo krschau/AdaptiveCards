@@ -5,7 +5,7 @@
 #include "AdaptiveTableConfig.h"
 #include "AdaptiveTableConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveTableConfig::AdaptiveTableConfig(::AdaptiveCards::TableConfig const& tableConfig)
     {

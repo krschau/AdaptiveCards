@@ -7,7 +7,7 @@
 #include "AdaptiveFontWeightsConfig.h"
 #include "AdaptiveFontSizesConfig.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveFontTypeDefinition::AdaptiveFontTypeDefinition(::AdaptiveCards::FontTypeDefinition const& typeDefinition) :
         FontFamily{UTF8ToHString(typeDefinition.fontFamily)}, FontWeights{winrt::make<implementation::AdaptiveFontWeightsConfig>(

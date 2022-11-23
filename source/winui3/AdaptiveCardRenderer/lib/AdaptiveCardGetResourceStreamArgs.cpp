@@ -4,6 +4,6 @@
 #include "AdaptiveCardGetResourceStreamArgs.h"
 #include "AdaptiveCardGetResourceStreamArgs.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
 }

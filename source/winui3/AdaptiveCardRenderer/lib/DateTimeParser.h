@@ -5,7 +5,7 @@
 
 #include <string>
 
-namespace AdaptiveCards::Rendering::Winui3
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     class DateTimeParser
     {

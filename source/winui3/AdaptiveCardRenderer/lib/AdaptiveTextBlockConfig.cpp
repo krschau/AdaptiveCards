@@ -5,7 +5,7 @@
 #include "AdaptiveTextBlockConfig.h"
 #include "AdaptiveTextBlockConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveTextBlockConfig::AdaptiveTextBlockConfig(::AdaptiveCards::TextBlockConfig const& textBlockConfig)
     {

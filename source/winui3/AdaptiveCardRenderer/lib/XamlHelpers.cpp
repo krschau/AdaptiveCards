@@ -7,7 +7,7 @@
 #include "TileControl.h"
 #include "AdaptiveBase64Util.h"
 
-namespace AdaptiveCards::Rendering::Winui3::XamlHelpers
+namespace AdaptiveCards::Rendering::XamlRendering::XamlHelpers
 {
     constexpr PCWSTR c_BackgroundImageOverlayBrushKey = L"AdaptiveCard.BackgroundOverlayBrush";
 
@@ -745,6 +745,7 @@ namespace AdaptiveCards::Rendering::Winui3::XamlHelpers
         if (label)
         {
             winrt::AutomationProperties::SetLabeledBy(actualUIElement, label);
+            winrt::AutomationProperties::SetName(actualUIElement, adaptiveInput.Label());
         }
 
         return inputStackPanel;

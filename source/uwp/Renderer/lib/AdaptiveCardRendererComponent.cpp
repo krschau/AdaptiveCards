@@ -36,9 +36,9 @@
 #include "InputValue.h"
 #include "RenderedAdaptiveCard.h"
 
-using namespace AdaptiveCards::Rendering::Uwp::XamlHelpers;
+using namespace AdaptiveCards::Rendering::XamlRendering::XamlHelpers;
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveCardRenderer::AdaptiveCardRenderer() :
         m_elementRendererRegistration(winrt::make_self<implementation::AdaptiveElementRendererRegistration>()),
@@ -46,15 +46,15 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         m_featureRegistration(winrt::make<implementation::AdaptiveFeatureRegistration>()),
         m_hostConfig(winrt::make<implementation::AdaptiveHostConfig>()),
         m_resourceResolvers(winrt::make<implementation::AdaptiveCardResourceResolvers>()),
-        m_xamlBuilder(winrt::make_self<::AdaptiveCards::Rendering::Uwp::XamlBuilder>())
+        m_xamlBuilder(winrt::make_self<::AdaptiveCards::Rendering::XamlRendering::XamlBuilder>())
     {
-        ::AdaptiveCards::Rendering::Uwp::RegisterDefaultElementRenderers(m_elementRendererRegistration.get(), m_xamlBuilder);
-        ::AdaptiveCards::Rendering::Uwp::RegisterDefaultActionRenderers(m_actionRendererRegistration.get());
+        ::AdaptiveCards::Rendering::XamlRendering::RegisterDefaultElementRenderers(m_elementRendererRegistration.get(), m_xamlBuilder);
+        ::AdaptiveCards::Rendering::XamlRendering::RegisterDefaultActionRenderers(m_actionRendererRegistration.get());
         InitializeDefaultResourceDictionary();
         UpdateActionSentimentResourceDictionary();
     }
 
-    Uwp::AdaptiveFeatureRegistration AdaptiveCardRenderer::FeatureRegistration()
+    XamlRendering::AdaptiveFeatureRegistration AdaptiveCardRenderer::FeatureRegistration()
     {
         if (!m_featureRegistration)
         {
@@ -77,7 +77,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         GetHostConfig()->OverflowMaxActions = overflowMaxActions;
     }
 
-    Uwp::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCard(winrt::AdaptiveCard const& adaptiveCard)
+    XamlRendering::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCard(winrt::AdaptiveCard const& adaptiveCard)
     {
         auto renderedCard = winrt::make_self<implementation::RenderedAdaptiveCard>();
         renderedCard->SetOriginatingCard(adaptiveCard);
@@ -104,7 +104,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
             {
                 renderContext->LinkCardToParent(adaptiveCard, nullptr);
                 auto xamlTreeRoot =
-                    ::AdaptiveCards::Rendering::Uwp::XamlBuilder::BuildXamlTreeFromAdaptiveCard(adaptiveCard,
+                    ::AdaptiveCards::Rendering::XamlRendering::XamlBuilder::BuildXamlTreeFromAdaptiveCard(adaptiveCard,
                                                                                                 *renderContext,
                                                                                                 m_xamlBuilder.get());
                 renderedCard->SetFrameworkElement(xamlTreeRoot);
@@ -120,7 +120,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         return *renderedCard;
     }
 
-    Uwp::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCardFromJsonString(hstring const& adaptiveJson)
+    XamlRendering::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCardFromJsonString(hstring const& adaptiveJson)
     {
         auto adaptiveCardParseResult = winrt::AdaptiveCard::FromJsonString(adaptiveJson);
         if (auto parsedCard = adaptiveCardParseResult.AdaptiveCard())
@@ -141,7 +141,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
     }
 
-    Uwp::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCardFromJson(winrt::JsonObject const& adaptiveJson)
+    XamlRendering::RenderedAdaptiveCard AdaptiveCardRenderer::RenderAdaptiveCardFromJson(winrt::JsonObject const& adaptiveJson)
     {
         return RenderAdaptiveCardFromJsonString(JsonObjectToHString(adaptiveJson));
     }

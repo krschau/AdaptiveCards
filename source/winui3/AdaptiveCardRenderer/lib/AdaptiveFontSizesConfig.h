@@ -4,7 +4,7 @@
 
 #include "AdaptiveFontSizesConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveFontSizesConfig : AdaptiveFontSizesConfigT<AdaptiveFontSizesConfig>
     {
@@ -17,7 +17,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<uint32_t> ExtraLarge;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveFontSizesConfig : AdaptiveFontSizesConfigT<AdaptiveFontSizesConfig, implementation::AdaptiveFontSizesConfig>
     {

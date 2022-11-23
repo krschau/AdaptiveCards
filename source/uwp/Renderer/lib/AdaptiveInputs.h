@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 #pragma once
+#include "pch.h"
 
-#include "AdaptiveCards.Rendering.Uwp.h"
 #include "InputValue.h"
 #include "AdaptiveInputs.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveInputs : AdaptiveInputsT<AdaptiveInputs>
     {
@@ -22,7 +22,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         void LinkSubmitActionToCard(winrt::IAdaptiveActionElement const& action, winrt::AdaptiveRenderArgs const& renderArgs);
         void LinkCardToParent(uint32_t cardId, uint32_t parentCardId);
 
-        Uwp::IAdaptiveInputValue GetInputValue(winrt::IAdaptiveInputElement const& inputElement);
+        XamlRendering::IAdaptiveInputValue GetInputValue(winrt::IAdaptiveInputElement const& inputElement);
 
     private:
         std::string GetInputItemsAsJsonString();
@@ -52,7 +52,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveInputs : AdaptiveInputsT<AdaptiveInputs, implementation::AdaptiveInputs>
     {

@@ -4,7 +4,7 @@
 
 #include "AdaptiveErrorMessageConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveErrorMessageConfig : AdaptiveErrorMessageConfigT<AdaptiveErrorMessageConfig>
     {
@@ -15,7 +15,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<winrt::TextWeight> Weight;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveErrorMessageConfig : AdaptiveErrorMessageConfigT<AdaptiveErrorMessageConfig, implementation::AdaptiveErrorMessageConfig>
     {

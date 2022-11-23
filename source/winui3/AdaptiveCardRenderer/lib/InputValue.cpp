@@ -5,7 +5,7 @@
 #include "json/json.h"
 #include "XamlHelpers.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3
+namespace winrt::AdaptiveCards::Rendering::XamlRendering
 {
     InputValue::InputValue(winrt::IAdaptiveInputElement const& adaptiveInputElement,
                            winrt::UIElement const& uiInputElement,
@@ -309,7 +309,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3
 
     winrt::hstring ToggleInputValue::CurrentValue()
     {
-        auto checkedValue = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::GetToggleValue(m_checkBoxElement);
+        auto checkedValue = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(m_checkBoxElement);
 
         if (checkedValue)
         {
@@ -332,7 +332,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3
         if (isRequired)
         {
             // MeetsRequirement is true if toggle is checked
-            meetsRequirement = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::GetToggleValue(m_checkBoxElement);
+            meetsRequirement = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(m_checkBoxElement);
         }
         return meetsRequirement;
     }
@@ -383,7 +383,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3
             std::string multiSelectValues;
             for (auto element : panelChildren)
             {
-                if (::AdaptiveCards::Rendering::Winui3::XamlHelpers::GetToggleValue(element))
+                if (::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(element))
                 {
                     multiSelectValues += GetChoiceValue(m_adaptiveChoiceSetInput, index) + ",";
                 }
@@ -402,7 +402,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3
             int selectedIndex = -1;
             for (auto element : panelChildren)
             {
-                if (::AdaptiveCards::Rendering::Winui3::XamlHelpers::GetToggleValue(element))
+                if (::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::GetToggleValue(element))
                 {
                     selectedIndex = index;
                     break;

@@ -4,7 +4,7 @@
 
 #include "AdaptiveRenderArgs.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveRenderArgs : AdaptiveRenderArgsT<AdaptiveRenderArgs>
     {
@@ -12,12 +12,12 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
 
         AdaptiveRenderArgs(winrt::ContainerStyle const& containerStyle,
                            winrt::IInspectable const& parentElement,
-                           Uwp::AdaptiveRenderArgs const& renderArgs);
+                           XamlRendering::AdaptiveRenderArgs const& renderArgs);
 
         AdaptiveRenderArgs(winrt::ContainerStyle const& containerStyle,
                            winrt::IInspectable const& parentElement,
                            winrt::AdaptiveCard const& parentCard,
-                           Uwp::AdaptiveRenderArgs const& renderArgs);
+                           XamlRendering::AdaptiveRenderArgs const& renderArgs);
 
         property<winrt::ContainerStyle> ContainerStyle;
         property<winrt::IInspectable> ParentElement;
@@ -28,7 +28,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         property<bool> AddContainerPadding{false};
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveRenderArgs : AdaptiveRenderArgsT<AdaptiveRenderArgs, implementation::AdaptiveRenderArgs>
     {

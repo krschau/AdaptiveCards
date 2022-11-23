@@ -3,7 +3,7 @@
 #include "pch.h"
 #include "ImageLoadTracker.h"
 
-namespace AdaptiveCards::Rendering::Winui3
+namespace AdaptiveCards::Rendering::XamlRendering
 {
     ImageLoadTracker::~ImageLoadTracker()
     {
@@ -53,7 +53,7 @@ namespace AdaptiveCards::Rendering::Winui3
         m_eventRevokers.clear();
     }
 
-    void ImageLoadTracker::AddListener(::AdaptiveCards::Rendering::Winui3::IImageLoadTrackerListener* listener)
+    void ImageLoadTracker::AddListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener)
     {
         if (m_listeners.find(listener) == m_listeners.end())
         {
@@ -61,7 +61,7 @@ namespace AdaptiveCards::Rendering::Winui3
         }
     }
 
-    void ImageLoadTracker::RemoveListener(::AdaptiveCards::Rendering::Winui3::IImageLoadTrackerListener* listener)
+    void ImageLoadTracker::RemoveListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener)
     {
         if (m_listeners.find(listener) != m_listeners.end())
         {

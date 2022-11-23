@@ -5,7 +5,7 @@
 #include "AdaptiveSpacingConfig.h"
 #include "AdaptiveSpacingConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveSpacingConfig::AdaptiveSpacingConfig(::AdaptiveCards::SpacingConfig const& spacingConfig)
     {

@@ -4,7 +4,7 @@
 
 #include "AdaptiveTextStyleConfigBase.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveTextStyleConfigBase::AdaptiveTextStyleConfigBase(::AdaptiveCards::TextStyleConfig const& textStyleConfig)
     {

@@ -7,7 +7,7 @@
 #include "XamlHelpers.h"
 #include <cmath>
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     TileControl::TileControl()
     {

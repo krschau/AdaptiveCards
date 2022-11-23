@@ -4,18 +4,18 @@
 
 #include "AdaptiveShowCardActionConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveShowCardActionConfig : AdaptiveShowCardActionConfigT<AdaptiveShowCardActionConfig>
     {
         AdaptiveShowCardActionConfig(::AdaptiveCards::ShowCardActionConfig const& showCardActionConfig = {});
 
-        property<winrt::AdaptiveCards::Rendering::Winui3::ActionMode> ActionMode;
+        property<winrt::AdaptiveCards::Rendering::XamlRendering::ActionMode> ActionMode;
         property<winrt::ContainerStyle> Style;
         property<uint32_t> InlineTopMargin;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveShowCardActionConfig
         : AdaptiveShowCardActionConfigT<AdaptiveShowCardActionConfig, implementation::AdaptiveShowCardActionConfig>

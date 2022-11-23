@@ -2,7 +2,13 @@
 // Licensed under the MIT License.
 #pragma once
 
-namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
+#ifndef USE_WINUI3
+#define MediaElementType MediaElement
+#else
+#define MediaElementType MediaPlayerElement
+#endif
+
+namespace AdaptiveCards::Rendering::XamlRendering::MediaHelpers
 {
     winrt::Image GetMediaPosterAsImage(winrt::AdaptiveRenderContext const& renderContext,
                                        winrt::AdaptiveRenderArgs const& renderArgs,
@@ -17,7 +23,7 @@ namespace AdaptiveCards::Rendering::Uwp::MediaHelpers
 
     void HandleMediaClick(winrt::AdaptiveRenderContext const& renderContext,
                           winrt::AdaptiveMedia const& adaptiveMedia,
-                          winrt::MediaElement const& mediaElement,
+                          winrt::MediaElementType const& mediaElement,
                           winrt::UIElement const& posterContainer,
                           winrt::Uri const& mediaSourceUrl,
                           winrt::hstring const& mimeType,

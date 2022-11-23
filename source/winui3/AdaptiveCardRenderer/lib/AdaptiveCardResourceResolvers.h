@@ -4,20 +4,20 @@
 
 #include "AdaptiveCardResourceResolvers.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveCardResourceResolvers : AdaptiveCardResourceResolversT<AdaptiveCardResourceResolvers>
     {
         AdaptiveCardResourceResolvers() = default;
 
         void Set(hstring const& scheme, winrt::IAdaptiveCardResourceResolver const& resolver);
-        Winui3::IAdaptiveCardResourceResolver Get(hstring const& scheme);
+        XamlRendering::IAdaptiveCardResourceResolver Get(hstring const& scheme);
 
-        std::map<hstring, Rendering::Winui3::IAdaptiveCardResourceResolver> m_resourceResolvers;
+        std::map<hstring, XamlRendering::IAdaptiveCardResourceResolver> m_resourceResolvers;
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveCardResourceResolvers
         : AdaptiveCardResourceResolversT<AdaptiveCardResourceResolvers, implementation::AdaptiveCardResourceResolvers>

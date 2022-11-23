@@ -4,7 +4,7 @@
 
 #include "WholeItemsPanel.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct DECLSPEC_UUID("32934D77-6248-4915-BD2A-8F52EF6C8322") WholeItemsPanel : public WholeItemsPanelT<WholeItemsPanel, ITypePeek>
     {
@@ -75,7 +75,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
     };
 }
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct WholeItemsPanel : WholeItemsPanelT<WholeItemsPanel, implementation::WholeItemsPanel>
     {

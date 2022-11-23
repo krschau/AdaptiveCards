@@ -6,7 +6,7 @@
 #include "AdaptiveMediaEventInvoker.g.cpp"
 #include "Util.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     void AdaptiveMediaEventInvoker::SendMediaClickedEvent(winrt::AdaptiveMedia const& mediaElement)
     {

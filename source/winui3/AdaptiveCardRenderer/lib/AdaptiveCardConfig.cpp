@@ -5,7 +5,7 @@
 #include "AdaptiveCardConfig.h"
 #include "AdaptiveCardConfig.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveCardConfig::AdaptiveCardConfig(::AdaptiveCards::AdaptiveCardConfig const& adaptiveCardConfig)
     {

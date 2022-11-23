@@ -5,7 +5,7 @@
 #include "AdaptiveTimeInputRenderer.h"
 #include "AdaptiveTimeInputRenderer.g.cpp"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveTimeInputRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                        winrt::AdaptiveRenderContext const& renderContext,
@@ -14,7 +14,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         try
         {
             auto hostConfig = renderContext.HostConfig();
-            if (!::AdaptiveCards::Rendering::Winui3::XamlHelpers::SupportsInteractivity(hostConfig))
+            if (!::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SupportsInteractivity(hostConfig))
             {
                 renderContext.AddWarning(winrt::WarningStatusCode::InteractivityNotSupported,
                                          L"Time Input was stripped from card because interactivity is not supported");
@@ -27,7 +27,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
             timePicker.HorizontalAlignment(winrt::HorizontalAlignment::Stretch);
             timePicker.VerticalAlignment(winrt::VerticalAlignment::Top);
 
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Time", timePicker);
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Time", timePicker);
 
             auto adaptiveTimeInput = cardElement.as<winrt::AdaptiveTimeInput>();
 
@@ -45,7 +45,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
             winrt::hstring min = adaptiveTimeInput.Min();
             winrt::hstring max = adaptiveTimeInput.Max();
 
-            auto [inputLayout, validationBorder] = ::AdaptiveCards::Rendering::Winui3::XamlHelpers::HandleInputLayoutAndValidation(
+            auto [inputLayout, validationBorder] = ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleInputLayoutAndValidation(
                 adaptiveTimeInput, timePicker, !max.empty() || !min.empty(), renderContext);
 				
             auto input = winrt::make_self<winrt::TimeInputValue>(adaptiveTimeInput, timePicker, validationBorder);
@@ -55,7 +55,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Winui3::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

@@ -7,7 +7,7 @@
 #include "InputValue.h"
 #include "Util.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     AdaptiveRenderContext::AdaptiveRenderContext() :
         HostConfig{nullptr}, FeatureRegistration{nullptr}, ElementRenderers{nullptr}, ActionRenderers{nullptr},
@@ -16,11 +16,11 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     {
     }
 
-    AdaptiveRenderContext::AdaptiveRenderContext(Rendering::Uwp::AdaptiveHostConfig const& hostConfig,
-                                                 Rendering::Uwp::AdaptiveFeatureRegistration const& featureRegistration,
-                                                 Rendering::Uwp::AdaptiveElementRendererRegistration const& elementRendererRegistration,
-                                                 Rendering::Uwp::AdaptiveActionRendererRegistration const& actionRendererRegistration,
-                                                 Rendering::Uwp::AdaptiveCardResourceResolvers const& resourceResolvers,
+    AdaptiveRenderContext::AdaptiveRenderContext(XamlRendering::AdaptiveHostConfig const& hostConfig,
+                                                 XamlRendering::AdaptiveFeatureRegistration const& featureRegistration,
+                                                 XamlRendering::AdaptiveElementRendererRegistration const& elementRendererRegistration,
+                                                 XamlRendering::AdaptiveActionRendererRegistration const& actionRendererRegistration,
+                                                 XamlRendering::AdaptiveCardResourceResolvers const& resourceResolvers,
                                                  winrt::ResourceDictionary const& overrideStyles,
                                                  winrt::ResourceDictionary const& defaultActionSentimentStyles,
                                                  winrt::com_ptr<implementation::RenderedAdaptiveCard> const& renderResult) :
@@ -37,7 +37,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
     }
 
-    Uwp::AdaptiveInputs AdaptiveRenderContext::UserInputs() { return GetRenderResult()->UserInputs(); }
+    XamlRendering::AdaptiveInputs AdaptiveRenderContext::UserInputs() { return GetRenderResult()->UserInputs(); }
 
     void AdaptiveRenderContext::AddError(winrt::ErrorStatusCode statusCode, hstring const& message)
     {
@@ -52,7 +52,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     void AdaptiveRenderContext::AddInlineShowCard(winrt::AdaptiveActionSet const& actionSet,
                                                   winrt::AdaptiveShowCardAction const& showCardAction,
                                                   winrt::UIElement const& showCardUIElement,
-                                                  Uwp::AdaptiveRenderArgs const& renderArgs)
+                                                  XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         GetRenderResult()->AddInlineShowCard(actionSet, showCardAction, showCardUIElement, renderArgs);
     }
@@ -60,7 +60,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     void AdaptiveRenderContext::AddInlineShowCard(winrt::AdaptiveCard const& adaptiveCard,
                                                   winrt::AdaptiveShowCardAction const& showCardAction,
                                                   winrt::UIElement const& showCardUIElement,
-                                                  Uwp::AdaptiveRenderArgs const& renderArgs)
+                                                  XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         GetRenderResult()->AddInlineShowCard(adaptiveCard, showCardAction, showCardUIElement, renderArgs);
     }
@@ -84,7 +84,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
     }
 
     void AdaptiveRenderContext::LinkSubmitActionToCard(winrt::IAdaptiveActionElement const& submitAction,
-                                                       Uwp::AdaptiveRenderArgs const& renderArgs)
+                                                       XamlRendering::AdaptiveRenderArgs const& renderArgs)
     {
         if (auto renderResult = GetRenderResult())
         {
@@ -100,7 +100,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
     }
 
-    Uwp::IAdaptiveInputValue AdaptiveRenderContext::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
+    XamlRendering::IAdaptiveInputValue AdaptiveRenderContext::GetInputValue(winrt::IAdaptiveInputElement const& inputElement)
     {
         if (auto renderResult = GetRenderResult())
         {

@@ -4,7 +4,7 @@
 
 #include "AdaptiveTableConfig.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveTableConfig : AdaptiveTableConfigT<AdaptiveTableConfig>
     {
@@ -13,7 +13,7 @@ namespace winrt::AdaptiveCards::Rendering::Winui3::implementation
         property<uint32_t> CellSpacing;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Winui3::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveTableConfig : AdaptiveTableConfigT<AdaptiveTableConfig, implementation::AdaptiveTableConfig>
     {

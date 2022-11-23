@@ -7,7 +7,7 @@
 #include "AdaptiveRenderContext.h"
 #include "TextHelpers.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     winrt::UIElement AdaptiveRichTextBlockRenderer::Render(winrt::IAdaptiveCardElement const& cardElement,
                                                            winrt::AdaptiveRenderContext const& renderContext,
@@ -117,7 +117,7 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
         }
         catch (winrt::hresult_error const& ex)
         {
-            ::AdaptiveCards::Rendering::Uwp::XamlHelpers::ErrForRenderFailedForElement(renderContext,
+            ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::ErrForRenderFailedForElement(renderContext,
                                                                              cardElement.ElementTypeString(),
                                                                              ex.message());
             return nullptr;

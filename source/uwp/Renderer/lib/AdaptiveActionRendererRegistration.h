@@ -4,7 +4,7 @@
 
 #include "AdaptiveActionRendererRegistration.g.h"
 
-namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
 {
     struct AdaptiveActionRendererRegistration : AdaptiveActionRendererRegistrationT<AdaptiveActionRendererRegistration>
     {
@@ -13,14 +13,14 @@ namespace winrt::AdaptiveCards::Rendering::Uwp::implementation
 
         AdaptiveActionRendererRegistration() = default;
 
-        Uwp::IAdaptiveActionRenderer Get(winrt::hstring const& type);
+        XamlRendering::IAdaptiveActionRenderer Get(winrt::hstring const& type);
         void Set(winrt::hstring const& type, winrt::IAdaptiveActionRenderer const& renderer);
         void Remove(winrt::hstring const& type);
 
         RegistrationMap m_registration;
     };
 }
-namespace winrt::AdaptiveCards::Rendering::Uwp::factory_implementation
+namespace winrt::AdaptiveCards::Rendering::XamlRendering::factory_implementation
 {
     struct AdaptiveActionRendererRegistration
         : AdaptiveActionRendererRegistrationT<AdaptiveActionRendererRegistration, implementation::AdaptiveActionRendererRegistration>
