@@ -140,10 +140,9 @@ winrt::Windows::UI::Color GetBackgroundColorFromStyle(winrt::ContainerStyle cons
 winrt::Windows::UI::Color GetBorderColorFromStyle(winrt::ContainerStyle style,
                                                   winrt::AdaptiveHostConfig const& hostConfig);
 
-winrt::TextHighlighter
-GetHighlighter(winrt::IAdaptiveTextElement const& adaptiveTextElement,
-               winrt::AdaptiveRenderContext const& renderContext,
-               winrt::AdaptiveRenderArgs const& renderArgs);
+winrt::Microsoft::UI::Xaml::Documents::TextHighlighter GetHighlighter(winrt::IAdaptiveTextElement const& adaptiveTextElement,
+                                     winrt::AdaptiveRenderContext const& renderContext,
+                                     winrt::AdaptiveRenderArgs const& renderArgs);
 
 winrt::hstring GetFontFamilyFromFontType(winrt::AdaptiveHostConfig const& hostConfig, winrt::FontType const& fontType);
 

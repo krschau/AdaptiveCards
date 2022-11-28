@@ -65,16 +65,17 @@ namespace winrt
     }
 
     namespace xaml = winrt::Windows::UI::Xaml;
+    namespace xaml_media = winrt::Windows::UI::Xaml::Media;
 
-    using Brush = winrt::Windows::UI::Xaml::Media::Brush;
-    using FontFamily = winrt::Windows::UI::Xaml::Media::FontFamily;
-    using ImageBrush = ::winrt::Windows::UI::Xaml::Media::ImageBrush;
-    using ImageSource = ::winrt::Windows::UI::Xaml::Media::ImageSource;
-    using RectangleGeometry = winrt::Windows::UI::Xaml::Media::RectangleGeometry;
-    using SolidColorBrush = ::winrt::Windows::UI::Xaml::Media::SolidColorBrush;
-    using Stretch = ::winrt::Windows::UI::Xaml::Media::Stretch;
-    using AlignmentX = ::winrt::Windows::UI::Xaml::Media::AlignmentX;
-    using AlignmentY = ::winrt::Windows::UI::Xaml::Media::AlignmentY;
+    using Brush = xaml_media::Brush;
+    using FontFamily = xaml_media::FontFamily;
+    using ImageBrush = xaml_media::ImageBrush;
+    using ImageSource = xaml_media::ImageSource;
+    using RectangleGeometry = xaml_media::RectangleGeometry;
+    using SolidColorBrush = xaml_media::SolidColorBrush;
+    using Stretch = xaml_media::Stretch;
+    using AlignmentX = xaml_media::AlignmentX;
+    using AlignmentY = xaml_media::AlignmentY;
 
     // using namespace winrt::Windows::Data::Json
     using JsonObject = ::winrt::Windows::Data::Json::JsonObject;
@@ -86,9 +87,11 @@ namespace winrt
     // using namespace winrt::Windows::Globalization::DateTimeFormatting;
     using DateTimeFormatter = ::winrt::Windows::Globalization::DateTimeFormatting::DateTimeFormatter;
 
+#ifndef USE_WINUI3
     // using namespace winrt::Windows::UI::Core;
     using CoreWindow = ::winrt::Windows::UI::Core::CoreWindow;
     using CoreVirtualKeyStates = ::winrt::Windows::UI::Core::CoreVirtualKeyStates;
+#endif
 
     // using namespace winrt::Windows::Web::Http
     using HttpProgress = ::winrt::Windows::Web::Http::HttpProgress;

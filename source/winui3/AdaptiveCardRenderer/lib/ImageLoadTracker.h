@@ -4,20 +4,22 @@
 
 #include "IImageLoadTrackerListener.h"
 
+using BitmapImage = winrt::Microsoft::UI::Xaml::Media::Imaging::BitmapImage;
+
 namespace AdaptiveCards::Rendering::XamlRendering
 {
     struct TrackedImageDetails : winrt::implements<TrackedImageDetails, winrt::IInspectable>
     {
-        winrt::BitmapImage::ImageOpened_revoker imageOpenedRevoker{};
-        winrt::BitmapImage::ImageFailed_revoker imageFailedRevoker{};
+        BitmapImage::ImageOpened_revoker imageOpenedRevoker{};
+        BitmapImage::ImageFailed_revoker imageFailedRevoker{};
     };
 
     struct ImageLoadTracker : winrt::implements<ImageLoadTracker, winrt::IInspectable>
     {
     public:
         ~ImageLoadTracker();
-        void TrackBitmapImage(winrt::BitmapImage const& bitmapImage);
-        void MarkFailedLoadBitmapImage(winrt::BitmapImage const& bitmapImage);
+        void TrackBitmapImage(BitmapImage const& bitmapImage);
+        void MarkFailedLoadBitmapImage(BitmapImage const& bitmapImage);
 
         void AbandonOutstandingImages();
         void AddListener(::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener* listener);
@@ -33,7 +35,7 @@ namespace AdaptiveCards::Rendering::XamlRendering
         std::set<::AdaptiveCards::Rendering::XamlRendering::IImageLoadTrackerListener*> m_listeners;
 
         void TrackedImage_ImageLoaded(winrt::IInspectable const& sender,
-                                      winrt::RoutedEventArgs const& eventArgs);
+                                      winrt::Microsoft::UI::Xaml::RoutedEventArgs const& eventArgs);
         void TrackedImage_ImageFailed(winrt::IInspectable const& sender,
                                       winrt::ExceptionRoutedEventArgs const& eventArgs);
         void ImageLoadResultReceived(winrt::IInspectable const& sender);

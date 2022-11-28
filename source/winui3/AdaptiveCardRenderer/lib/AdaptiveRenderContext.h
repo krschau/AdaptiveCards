@@ -20,8 +20,8 @@ namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
                               XamlRendering::AdaptiveElementRendererRegistration const& elementRendererRegistration,
                               XamlRendering::AdaptiveActionRendererRegistration const& actionRendererRegistration,
                               XamlRendering::AdaptiveCardResourceResolvers const& resourceResolvers,
-                              winrt::ResourceDictionary const& overrideStyles,
-                              winrt::ResourceDictionary const& defaultActionSentimentStyles,
+                              xaml::ResourceDictionary const& overrideStyles,
+                              xaml::ResourceDictionary const& defaultActionSentimentStyles,
                               winrt::com_ptr<implementation::RenderedAdaptiveCard> const& renderResult);
 
         property<winrt::AdaptiveHostConfig> HostConfig;
@@ -34,7 +34,7 @@ namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
         property_opt<winrt::TextStyle> TextStyle;
         property_opt<winrt::HAlignment> HorizontalContentAlignment;
         property<winrt::AdaptiveCardResourceResolvers> ResourceResolvers;
-        property<winrt::ResourceDictionary> OverrideStyles;
+        property<xaml::ResourceDictionary> OverrideStyles;
 
         XamlRendering::AdaptiveInputs UserInputs();
 
@@ -62,13 +62,13 @@ namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
         void AddOverflowButton(winrt::AdaptiveCard const& actionCard, winrt::UIElement const& actionUIElement);
 
         winrt::com_ptr<implementation::RenderedAdaptiveCard> GetRenderResult();
-        winrt::ResourceDictionary GetDefaultActionSentimentDictionary();
+        xaml::ResourceDictionary GetDefaultActionSentimentDictionary();
 
         // ITypePeek method
         void* PeekAt(REFIID riid) override { return PeekHelper(riid, this); }
 
         winrt::weak_ref<winrt::RenderedAdaptiveCard> m_weakRenderResult;
-        winrt::ResourceDictionary m_actionSentimentDefaultDictionary;
+        xaml::ResourceDictionary m_actionSentimentDefaultDictionary;
     };
 }
 
