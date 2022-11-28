@@ -73,7 +73,7 @@ namespace winrt::AdaptiveCards::Rendering::XamlRendering::implementation
             }
 
             ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::SetStyleFromResourceDictionary(renderContext, L"Adaptive.Input.Date", datePicker);
-			
+
             auto [inputLayout, validationBorder] =
                 ::AdaptiveCards::Rendering::XamlRendering::XamlHelpers::HandleInputLayoutAndValidation(adaptiveDateInput, datePicker, false, renderContext);
 
